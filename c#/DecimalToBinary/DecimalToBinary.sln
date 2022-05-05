@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecimalToBinary", "DecimalToBinary\DecimalToBinary.csproj", "{23C9F660-6FD6-43BE-BE4A-B9A3C80AA6FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{23C9F660-6FD6-43BE-BE4A-B9A3C80AA6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23C9F660-6FD6-43BE-BE4A-B9A3C80AA6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23C9F660-6FD6-43BE-BE4A-B9A3C80AA6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23C9F660-6FD6-43BE-BE4A-B9A3C80AA6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {63C4D67E-4A3B-4C72-A4C6-DF6B80FA169A}
+	EndGlobalSection
+EndGlobal
