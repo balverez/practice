@@ -1,28 +1,36 @@
-// public class FirecodeSolution {
-//     /**
-//      * Returns the number of ways to traverse a board of size m x n
-//      * from the top left cell to its bottom right cell, using down
-//      * and right directions of movement.
-//      *
-//      * @param m Number of rows of cells on the board.
-//      * @param n Number of columns of cells on the board.
-//      * @return Number of paths from the top left to bottom right.
-//      */
-//     public long countPaths(int m, int n) {
-//       int[][] memo = new int[m][n];
-//       for (int r = 0; r < m; r++) {
-//         memo[r][0] = 1;
-//       }
-//       for (int c = 0; c < n; c++) {
-//         memo[0][c] = 1;
-//       }
-  
-//       for (int r = 1; r < m; r++) {
-//         for (int c = 1; c < n; c++) {
-//           memo[r][c] = memo[r - 1][c] + memo[r][c - 1];
-//         }
-//       }
-  
-//       return memo[m - 1][n - 1];
-//     }
-//   }
+import java.util.ArrayList;
+import java.util.List;
+
+public class FirecodeSolution {
+  /**
+   * Returns the integers in the matrix in clockwise
+   * spiral order.
+   *
+   * @param matrix Input matrix.
+   * @return List of integers in clockwise spiral order.
+   */
+  public List<Integer> dumpSpiral(int[][] matrix) {
+    List<Integer> out = new ArrayList<>();
+    int rows = matrix.length, cols = matrix[0].length;
+    boolean[][] seen = new boolean[rows][cols];
+    int[] rowIncrements = {0, 1, 0, -1};
+    int[] colIncrements = {1, 0, -1, 0};
+    int r = 0, c = 0, direction = 0;
+    for (int i = 0; i < rows * cols; i++) {
+      out.add(matrix[r][c]);
+      seen[r][c] = true;
+      int maybeNextR = r + rowIncrements[direction];
+      int maybeNextC = c + colIncrements[direction];
+      if (maybeNextR >= 0 && maybeNextR < rows && maybeNextC >= 0 &&
+            maybeNextC < cols && !seen[maybeNextR][maybeNextC]) {
+        r = maybeNextR;
+        c = maybeNextC;
+      } else {
+        direction = (direction + 1) % 4;
+        r += rowIncrements[direction];
+        c += colIncrements[direction];
+      }
+    }
+    return out;
+  }
+}

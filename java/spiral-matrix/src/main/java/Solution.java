@@ -12,55 +12,39 @@ public class Solution
     */
     public List<Integer> dumpSpiral(int[][] matrix)
     {
+        List<Integer> result = new ArrayList<>();
         int m = matrix.length;
         int n = matrix[0].length;
+        boolean[][] visited = new boolean[m][n];
+        int[] rowIncrements = {0, 1, 0, -1};
+        int[] colIncrements = {1, 0, -1, 0};
+
+        int i = 0;
+        int j = 0;
         int direction = 0;
-        int visited = 0;
-        int total = m * n;
-        boolean[][] visitedMatrix = new boolean[m][n];
-        ArrayList<Integer> result = new ArrayList<Integer>();
-
-        while (visited < total)
+        for (int k = 0; k < m * n; k++)
         {
-            switch (direction)
+            result.add(matrix[i][j]);
+            visited[i][j] = true;
+            int possibleRow = i + rowIncrements[direction];
+            int possibleCol = j + colIncrements[direction];
+            if (possibleRow >= 0
+                && possibleRow < m
+                && possibleCol >= 0
+                && possibleCol < n
+                && !visited[possibleRow][possibleCol])
             {
-                case 0:
-                    for (int i = (matrix.length - m); i < m)
-                    {
-                        for (int j = (matrix[0].length - n); j < n; j++)
-                        {
-                            visitedMatrix[i][j] = true;
-                            visited++;
-                        }
-                    }
-                    m--;
-                    direction++;
-                    break;
-                case 1:
-                    for (int i = (matrix.length - m); i < m; i++)
-                    {
-                        for (int j = n; j < n)
-                        {
-                            visited[i][j] = true;
-                            visited++;
-                        }
-                    }
-                    break;
-                case 2:
-                    break;
-                default:
-
+                i = possibleRow;
+                j = possibleCol;
+            }
+            else
+            {
+                direction = (direction + 1) % 4;
+                i += rowIncrements[direction];
+                j += colIncrements[direction];
             }
         }
-    }
 
-    private boolean isBoundary(int[][] matrix, boolean[][] visited, int i, int j, int m, int n)
-    {
-        if (i >= n || j >= m || visited[i][j])
-        {
-            return true;
-        }
-
-        return false;
+        return result;
     }
 }
