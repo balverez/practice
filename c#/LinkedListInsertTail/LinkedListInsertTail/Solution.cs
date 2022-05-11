@@ -4,34 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SinglyLinkedListInsertNode
+namespace LinkedListInsertTail
 {
-    public class Solution
+    internal class Solution
     {
-        public static ListNode InsertAtEnd(ListNode? head, int n)
+        public ListNode InsertTail(ListNode? head, int n)
         {
             ListNode newNode = new(n);
-            if (head == null)
-            {
-                return newNode;
-            }
 
-            ListNode tailNode = GetTailNode(head);
-            tailNode.Next = newNode;
+            if (head == null)
+                return newNode;
+
+            ListNode tail = GetTail(head);
+            tail.Next = newNode;
 
             return head;
         }
 
-        private static ListNode GetTailNode(ListNode head)
+        private ListNode GetTail(ListNode head)
         {
             ListNode i = head;
-            
+
             while (i.Next != null)
-            {
                 i = i.Next;
-            }
 
             return i;
         }
-    }
+    }   
 }

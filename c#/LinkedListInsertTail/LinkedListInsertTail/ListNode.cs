@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SinglyLinkedListInsertNode
+namespace LinkedListInsertTail
 {
-    public class ListNode
+    internal class ListNode
     {
         public int Data { get; set; }
-
         public ListNode? Next { get; set; }
 
         public ListNode(int data, ListNode next)
