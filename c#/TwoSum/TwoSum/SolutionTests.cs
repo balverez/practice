@@ -11,7 +11,7 @@ namespace TwoSum
             int target = 14;
             int[] expectedResult = new int[] { 1, 4 };
 
-            Assert.Equal(expectedResult, new Solution().TwoSum(testArr, target));
+            Assert.Equal(expectedResult, Solution.TwoSum(testArr, target));
         }
     }
 }

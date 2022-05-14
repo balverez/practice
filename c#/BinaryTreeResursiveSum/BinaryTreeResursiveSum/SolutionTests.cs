@@ -14,7 +14,7 @@ namespace BinaryTreeResursiveSum
 
             int expected = 15;
 
-            Assert.Equal(expected, new SolutionTests().SumNodes(test));
+            Assert.Equal(expected, new Solution().SumNodes(test));
         }
     }
 }
