@@ -1,21 +1,20 @@
 using Xunit;
 
-namespace BinaryTreeSum
+namespace BinaryTreeResursiveSum
 {
     public class SolutionTests
     {
         [Fact]
         public void Test1()
         {
-            TreeNode testRoot = new TreeNode(
+            TreeNode test = new TreeNode(
                 data: 1,
                 left: new TreeNode(2),
                 right: new TreeNode(3, new TreeNode(4), new TreeNode(5)));
 
-            int test = 2;
-            bool expected = true;
+            int expected = 15;
 
-            Assert.Equal(expected, new Solution().SumNodes(testRoot));
+            Assert.Equal(expected, new SolutionTests().SumNodes(test));
         }
     }
 }
