@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CountLeaves
+namespace BinaryTreeCountLeaves
 {
     internal class Solution
     {
@@ -13,10 +13,7 @@ namespace CountLeaves
             if (root == null)
                 return 0;
 
-            if (root.Left == null && root.Right == null)
-                return 1;
-
-            return CountLeaves(root.Left) + CountLeaves(root.Right);
+            return (root.Left == null && root.Right == null ? 1 : 0) + CountLeaves(root.Left) + CountLeaves(root.Right);
         }
     }
 }

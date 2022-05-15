@@ -5,18 +5,18 @@ namespace DuplicateNumbers
 {
     public class Solution
     {
-        public int[] FindDuplicateNumbers(int[] testArr)
+        public int[] FindDuplicateNumbers(int[] arr)
         {
-            SortedSet<int> sortedSet = new SortedSet<int>();
-            HashSet<int> vistedSet = new HashSet<int>();
+            HashSet<int> set = new();
+            SortedSet<int> sortedSet = new();
 
-            testArr.ToList().ForEach(n =>
+            foreach (int i in arr)
             {
-                if (vistedSet.Contains(n))
-                    sortedSet.Add(n);
-
-                vistedSet.Add(n);
-            });
+                if (set.Contains(i))
+                    sortedSet.Add(i);
+                
+                set.Add(i);
+            }
 
             return sortedSet.ToArray();
         }

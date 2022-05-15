@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace CountLeaves
+namespace BinaryTreeCountLeaves
 {
     public class SolutionTests
     {
