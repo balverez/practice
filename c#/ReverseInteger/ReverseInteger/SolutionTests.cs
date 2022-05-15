@@ -4,36 +4,14 @@ namespace ReverseInteger
 {
     public class SolutionTests
     {
-        [Fact]
-        public void Test1()
+        [Theory]
+        [InlineData(153, 351)]
+        [InlineData(321, 123)]
+        [InlineData(21, 12)]
+        [InlineData(0, 0)]
+        public void Test(int expected, int test)
         {
-            int test = 351;
-            int expectedResult = 153;
-            Assert.Equal(expectedResult, new Solution().Reverse(test));
-        }
-
-        [Fact]
-        public void Test2()
-        {
-            int test = 123;
-            int expectedResult = 321;
-            Assert.Equal(expectedResult, new Solution().Reverse(test));
-        }
-
-        [Fact]
-        public void Test3()
-        {
-            int test = 12;
-            int expectedResult = 21;
-            Assert.Equal(expectedResult, new Solution().Reverse(test));
-        }
-
-        [Fact]
-        public void Test4()
-        {
-            int test = 0;
-            int expectedResult = 0;
-            Assert.Equal(expectedResult, new Solution().Reverse(test));
+            Assert.Equal(expected, new Solution().Reverse(test));
         }
     }
 }
