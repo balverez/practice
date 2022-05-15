@@ -12,15 +12,13 @@ namespace BetterRecursivePower
         {
             if (n == 0)
                 return 1D;
-
             if (n % 2 == 0)
                 return n < 0
                     ? BetterPower(1 / (b * b), -n / 2)
                     : BetterPower(b * b, n / 2);
-            else
-                return n < 0
-                    ? BetterPower(1 / b, -n)
-                    : b * BetterPower(b, --n);
+            return n < 0
+                ? BetterPower(1 / b, -n)
+                : b * BetterPower(b, n - 1);
         }
     }
 }
