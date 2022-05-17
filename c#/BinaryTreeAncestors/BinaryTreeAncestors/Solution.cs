@@ -8,20 +8,20 @@ namespace BinaryTreeAncestors
 {
     internal class Solution
     {
-        internal List<int> ListAncestors(TreeNode root, int target)
+        internal List<int> ListAncestors(TreeNode root, int n)
         {
             List<int> ancestors = new();
-            RetrieveAncestors(root, ancestors, target);
+            AncestorDfs(root, ancestors, n);
             return ancestors;
         }
 
-        private bool RetrieveAncestors(TreeNode? root, List<int> ancestors, int target)
+        private bool AncestorDfs(TreeNode? root, List<int> ancestors, int n)
         {
             if (root == null)
                 return false;
-            else if (root.Data == target)
+            if (root.Data == n)
                 return true;
-            else if (RetrieveAncestors(root.Left, ancestors, target) || RetrieveAncestors(root.Right, ancestors, target))
+            if (AncestorDfs(root.Left, ancestors, n) || AncestorDfs(root.Right, ancestors, n))
             {
                 ancestors.Add(root.Data);
                 return true;
