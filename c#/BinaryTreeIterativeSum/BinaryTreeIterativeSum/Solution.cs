@@ -8,6 +8,8 @@ namespace BinaryTreeIterativeSum
 {
     internal class Solution
     {
+        //O(n) time
+        //O(n) space
         public int SumNodes(TreeNode? root)
         {
             int sum = 0;
