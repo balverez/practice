@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Xunit;
 
-namespace PreOrderTraversal
+namespace BinaryTreeRecursivePreOrderTraversal
 {
     public class SolutionTests
     {
