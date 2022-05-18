@@ -8,7 +8,7 @@ namespace BinaryTreeMirror
 {
     internal class Solution
     {
-        public TreeNode? MirrorTree(TreeNode? root)
+        public TreeNode MirrorTree(TreeNode root)
         {
             Mirror(root);
             return root;
@@ -21,7 +21,6 @@ namespace BinaryTreeMirror
                 TreeNode? temp = root.Left;
                 root.Left = root.Right;
                 root.Right = temp;
-
                 Mirror(root.Left);
                 Mirror(root.Right);
             }
