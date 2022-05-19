@@ -9,7 +9,7 @@ namespace BinaryTreeMaxSumPath
             if (root == null)
                 return 0;
 
-            int maxSum = 0;
+            int maxSum = int.MinValue;
             BuildMaxPath(root, ref maxSum);
             return maxSum;
         }
@@ -23,6 +23,7 @@ namespace BinaryTreeMaxSumPath
             int rightMax = BuildMaxPath(root.Right, ref maxSum);
 
             maxSum = Math.Max(maxSum, root.Data + leftMax + rightMax);
+
             return Math.Max(root.Data + leftMax, root.Data + rightMax);
         }
     }
