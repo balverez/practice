@@ -5,6 +5,9 @@ namespace BinaryTreeMaxLevelSum
 {
     internal class Solution
     {
+
+        //O(n) time
+        //O(n) space
         public int MaxLevelSum(TreeNode root)
         {
             Queue<TreeNode> currentLevel = new();

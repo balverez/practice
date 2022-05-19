@@ -8,18 +8,20 @@ namespace PalindromeNumber
 {
     internal class Solution
     {
+        //O(n) time
+        //O(1) space
         public bool IsPalindrome(int input)
         {
-            int reversed = 0;
-            int candidate = input;
+            int original = input;
+            int reverse = 0;
 
-            while (candidate != 0)
+            while (input > 0)
             {
-                reversed = (reversed * 10) + (candidate % 10);
-                candidate = candidate / 10;
+                reverse = (reverse * 10) + (input % 10);
+                input /= 10;
             }
 
-            return reversed == input;
+            return reverse == original;
         }
     }
 }
