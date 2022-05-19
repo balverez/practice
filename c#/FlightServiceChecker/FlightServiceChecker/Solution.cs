@@ -5,6 +5,8 @@ namespace FlightServiceChecker
 {
     internal class Solution
     {
+        //O(V + E) time
+        //O(V + E) space
         public bool FlightCheck(Dictionary<string, List<string>> originDestinationsMap, string origin, string destination)
         {
             HashSet<string> visited = new();
