@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeHeight", "BinaryTreeHeight\BinaryTreeHeight.csproj", "{D6D0076A-862B-4EC9-95B0-D3ACFBC91DCB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D6D0076A-862B-4EC9-95B0-D3ACFBC91DCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6D0076A-862B-4EC9-95B0-D3ACFBC91DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6D0076A-862B-4EC9-95B0-D3ACFBC91DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6D0076A-862B-4EC9-95B0-D3ACFBC91DCB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E945AC21-479E-4612-B8E9-EEADCA92D855}
+	EndGlobalSection
+EndGlobal

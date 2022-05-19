@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace HeightBinaryTree
+namespace BinaryTreeHeight
 {
     public class SolutionTests
     {
