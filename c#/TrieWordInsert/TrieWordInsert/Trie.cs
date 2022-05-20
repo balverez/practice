@@ -8,15 +8,14 @@
         {
             TrieNode node = _root;
 
-            for (int i = 0; i < word.Length; i++)
+            foreach (char c in word)
             {
-                if (node.Children.ContainsKey(word[i]))
-                    node = node.Children[word[i]];
-                else
+                if (!node.Children.ContainsKey(c))
                 {
-                    node.Children[word[i]] = new(word[i]);
-                    node = node.Children[word[i]];
+                    node.Children[c] = new(c);
                 }
+
+                node = node.Children[c];
             }
 
             node.IsWordBoundary = true;
