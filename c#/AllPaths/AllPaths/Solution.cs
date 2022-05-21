@@ -20,7 +20,7 @@ namespace AllPaths
                 return;
 
             str = str + board[row, column];
-            if (row == m- 1 && column == n - 1)
+            if (row == m - 1 && column == n - 1)
             {
                 paths.Add(str);
                 return;
