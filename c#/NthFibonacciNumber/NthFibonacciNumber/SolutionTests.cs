@@ -13,7 +13,7 @@ namespace NthFibonacciNumber
         [InlineData(80, 23416728348467685L)]
         public void Test(int test, long expected)
         {
-            Assert.Equal(expected, new Solution().Fibonacci(test));
+            Assert.Equal(expected, new Solution().BetterFibonacci(test));
         }
     }
 }

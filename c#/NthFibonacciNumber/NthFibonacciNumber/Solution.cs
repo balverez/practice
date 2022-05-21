@@ -8,26 +8,26 @@ namespace NthFibonacciNumber
 {
     internal class Solution
     {
-        public long Fibonacci(int n)
+        //O(n) time
+        //O(1) space
+        internal long BetterFibonacci(int n)
         {
-            if (n == 0)
-                return 0;
+            if (n < 1)
+                return 0L;
+            if (n < 2)
+                return 1L;
 
-            if (n < 3)
-                return 1;
-
-            long nMinus1 = 1;
-            long nMinus2 = 1;
-            long result = 0;
-
-            for (int i = 3; i <= n; i++)
+            long fibonacci = int.MinValue;
+            long first = 0L;
+            long second = 1L;
+            for (int i = 1; i < n; i++)
             {
-                result = nMinus1 + nMinus2;
-                nMinus2 = nMinus1;
-                nMinus1 = result;
+                fibonacci = first + second;
+                first = second;
+                second = fibonacci;
             }
 
-            return result;
+            return fibonacci;
         }
     }
 }
