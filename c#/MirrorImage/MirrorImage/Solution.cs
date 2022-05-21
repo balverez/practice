@@ -8,18 +8,18 @@ namespace MirrorImage
 {
     public class Solution
     {
+        //O(m * n) time
+        //O(m * n) space
         public int[,] MirrorImage(int[,] image)
         {
-            int rows = image.GetLength(0);
-            int columns = image.GetLength(1);
-            int[,] result = new int[rows, columns];
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < columns; j++)
-                {
-                    result[i,j] = image[i, columns - 1 - j];
-                }
-            }
+            int m = image.GetLength(0);
+            int n = image.GetLength(1);
+
+            int[,] result = new int[m, n];
+
+            for (int i = 0; i < m; i++)
+                for (int j = 0; j  < n; j++)
+                    result[i, j] = image[i, n - j - 1];
 
             return result;
         }
