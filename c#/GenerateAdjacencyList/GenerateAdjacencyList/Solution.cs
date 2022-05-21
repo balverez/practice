@@ -4,6 +4,8 @@ namespace GenerateAdjacencyList
 {
     internal class Solution
     {
+        //O(n) time
+        //O(n) space
         internal Dictionary<string, List<string>> GraphAdjacencyList(List<List<string>> originDestinations)
         {
             Dictionary<string, List<string>> adjacencyList = new();
