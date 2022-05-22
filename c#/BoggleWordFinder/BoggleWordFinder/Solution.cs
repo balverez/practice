@@ -2,6 +2,8 @@
 {
     internal class Solution
     {
+        //O(m * n * 4^k) time
+        //O(n) space
         public bool FindWord(char[,] board, string word)
         {
             int m = board.GetLength(0);
