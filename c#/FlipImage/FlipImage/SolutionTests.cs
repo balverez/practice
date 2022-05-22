@@ -7,16 +7,16 @@ namespace FlipImage
         [Fact]
         public void Test()
         {
-            int[][] testArr = new int[][]
+            int[,] testArr = new int[,]
             { 
-                new int[] { 255, 0, 0 },
-                new int[] { 0, 0, 255 }
+                { 255, 0, 0 },
+                { 0, 0, 255 }
             };
             
-            int[][] expectedArr = new int[][]
+            int[,] expectedArr = new int[,]
             { 
-                new int[] { 0, 0, 255 },
-                new int[] { 255, 0, 0 }
+                { 0, 0, 255 },
+                { 255, 0, 0 }
             };
 
             Assert.Equal(new Solution().FlipImage(testArr), expectedArr);
@@ -25,16 +25,16 @@ namespace FlipImage
         [Fact]
         public void Test2()
         {
-            int[][] testArr = new int[][]
+            int[,] testArr = new int[,]
             { 
-                new int[] { 255, 255, 255 },
-                new int[] { 0, 0, 0 } 
+                { 255, 255, 255 },
+                { 0, 0, 0 } 
             };
             
-            int[][] expectedResult = new int[][]
-            {
-                new int[] { 0, 0, 0 },
-                new int[] { 255, 255, 255 }
+            int[,] expectedResult = new int[,]
+            { 
+                { 0, 0, 0 }, 
+                { 255, 255, 255 }
             };
 
             Assert.Equal(new Solution().FlipImage(testArr), expectedResult);
@@ -43,14 +43,14 @@ namespace FlipImage
         [Fact]
         public void Test3()
         {
-            int[][] testArr = new int[][]
+            int[,] testArr = new int[,]
             {
-                new int[] { 255, 255, 255 }
+                { 255, 255, 255 }
             };
 
-            int[][] expectedResult = new int[][]
+            int[,] expectedResult = new int[,]
             {
-                new int[] { 255, 255, 255 }
+                { 255, 255, 255 }
             };
 
             Assert.Equal(new Solution().FlipImage(testArr), expectedResult);
