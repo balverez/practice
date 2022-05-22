@@ -2,7 +2,7 @@
 {
     internal class Solution
     {
-        internal ListNode ReverseInPairs(ListNode head)
+        internal ListNode? ReverseInPairs(ListNode head)
         {
             ListNode newHead = new(-1, head);
             ListNode? iterator = head;
