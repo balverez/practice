@@ -8,14 +8,14 @@ namespace Transpose
 {
     internal class Solution
     {
-        public int[,] TransposeMatrix(int[,] arr)
+        public int[,] Transpose(int[,] image)
         {
-            int length = arr.GetLength(0);
-            int[,] transpose = new int[length, length];
+            int size = image.GetLength(0);
+            int[,] transpose = new int[size, size];
 
-            for (int i = 0; i < length; i++)
-                for (int j = 0; j < length; j++)
-                    transpose[i, j] = arr[j, i];
+            for (int i = 0; i < size; i++)
+                for (int j = 0; j < size; j++)
+                    transpose[i, j] = image[j, i];
 
             return transpose;
         }
