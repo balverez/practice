@@ -1,31 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace PreorderIterativeTraversal
+namespace BinaryTreeIterativePreOrderTraversal
 {
     internal class Solution
     {
-        public List<int> PreOrder(TreeNode root)
+        internal List<int> PreOrder(TreeNode? root)
         {
             List<int> result = new();
-
             if (root == null)
                 return result;
-
 
             Stack<TreeNode> stack = new();
             stack.Push(root);
 
+            TreeNode node;
             while (stack.Count > 0)
             {
-                TreeNode node = stack.Pop();
-
+                node = stack.Pop();
                 result.Add(node.Data);
+
                 if (node.Right != null)
                     stack.Push(node.Right);
+
                 if (node.Left != null)
                     stack.Push(node.Left);
             }

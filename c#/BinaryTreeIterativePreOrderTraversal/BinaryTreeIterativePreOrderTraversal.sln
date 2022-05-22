@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryTreeIterativePreOrderTraversal", "BinaryTreeIterativePreOrderTraversal\BinaryTreeIterativePreOrderTraversal.csproj", "{DAA468C0-623B-42EC-89E4-D3106D741F7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAA468C0-623B-42EC-89E4-D3106D741F7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAA468C0-623B-42EC-89E4-D3106D741F7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAA468C0-623B-42EC-89E4-D3106D741F7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAA468C0-623B-42EC-89E4-D3106D741F7F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81A1FF75-EFCE-4A8F-B5DE-A3B20E309EB0}
+	EndGlobalSection
+EndGlobal
