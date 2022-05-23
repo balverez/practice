@@ -7,13 +7,15 @@ namespace AnagramsSolution
     {
         public static bool isPairAnagram(string s1, string s2)
         {
-            Dictionary<char, int> map = new Dictionary<char, int>();
+            Dictionary<char, int> charMap = new();
 
-            s1.ToUpper().ToList().ForEach(c => map[c] = map.GetValueOrDefault(c, 0) + 1);
+            foreach (char c in s1.ToUpper())
+                charMap[c] = charMap.GetValueOrDefault(c, 0) + 1;
 
-            s2.ToUpper().ToList().ForEach(c => map[c] = map.GetValueOrDefault(c, 0) - 1);
+            foreach (char c in s2.ToUpper())
+                charMap[c] = charMap.GetValueOrDefault(c, 0) - 1;
 
-            return !map.Any(key => key.Value != 0);
+            return charMap.All(entry => entry.Value == 0);
         }
     }
 }

@@ -11,20 +11,20 @@ namespace DpGridMaxSum
             int m = grid.GetLength(0);
             int n = grid.GetLength(1);
 
-            int[,] memo = new int[m, n];
+            int[,] result = new int[m, n];
+            result[0, 0] = grid[0, 0];
 
-            memo[0, 0] = grid[0, 0];
             for (int i = 1; i < m; i++)
-                memo[i, 0] = memo[i - 1, 0] + grid[i, 0];
+                result[i, 0] = grid[i, 0] + result[i - 1, 0];
 
             for (int j = 1; j < n; j++)
-                memo[0, j] = memo[0, j - 1] + grid[0, j];
+                result[0, j] = grid[0, j] + result[0, j - 1];
 
             for (int i = 1; i < m; i++)
                 for (int j = 1; j < n; j++)
-                    memo[i, j] = Math.Max(grid[i, j] + memo[i - 1, j], grid[i, j] + memo[i, j - 1]);
+                    result[i, j] = grid[i, j] + Math.Max(result[i - 1, j], result[i, j - 1]);
 
-            return memo[m - 1, n - 1];
+            return result[m - 1, n - 1];
         }
     }
 }

@@ -8,15 +8,17 @@ namespace DoublyLinkedListInsertHead
 {
     internal class Solution
     {
-        public DoublyLinkedListNode InsertHead(DoublyLinkedListNode? root, int n)
+        public DoublyLinkedListNode InsertHead(DoublyLinkedListNode? head, int n)
         {
-            DoublyLinkedListNode result = new(n);
-            if (root == null)
-                return new(n);
+            DoublyLinkedListNode newHead = new(n);
 
-            result.Next = root;
-            root.Previous = result;
-            return result;
+            if (head != null)
+            {
+                head.Previous = newHead;
+                newHead.Next = head;
+            }
+
+            return newHead;
         }
     }
 }

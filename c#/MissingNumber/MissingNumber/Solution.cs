@@ -8,6 +8,8 @@ namespace MissingNumber
 {
     internal class Solution
     {
-        public int MissingNumber(int[] arr) => 55 - arr.Sum();
+        //O(n) time
+        //O(1) space
+        public int MissingNumber(int[] sequence) => 55 - sequence.Sum();
     }
 }
