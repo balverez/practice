@@ -6,22 +6,22 @@ namespace RemoveDuplicatesLinkedList
     {
         public ListNode RemoveDuplicates(ListNode head)
         {
-            HashSet<int> dataMap = new HashSet<int>();
-
-            ListNode? i = new(0, head);
-            ListNode? j = head;
-
-            while (j != null)
+            HashSet<int> occurences = new();
+            ListNode previous = head;
+            ListNode? iterator = head;
+            while (iterator != null)
             {
-                if (dataMap.Contains(j.Data))
-                    i.Next = j.Next;
+                if (occurences.Contains(iterator.Data))
+                {
+                    previous.Next = iterator.Next;
+                    iterator = iterator.Next;
+                }
                 else
                 {
-                    i = j;
-                    dataMap.Add(j.Data);
+                    occurences.Add(iterator.Data);
+                    previous = iterator;
+                    iterator = iterator.Next;
                 }
-
-                j = j.Next;
             }
 
             return head;

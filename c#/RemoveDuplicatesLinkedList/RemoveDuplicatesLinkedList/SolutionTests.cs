@@ -10,7 +10,8 @@ namespace RemoveDuplicatesLinkedList
             ListNode testHead = new(1, new(2, new(3, new(1, new(2)))));
             int[] expected = {1, 2, 3};
 
-            ListNode? i = new Solution().RemoveDuplicates(testHead);
+            ListNode? head = new Solution().RemoveDuplicates(testHead);
+            ListNode? i = head;
             int j = 0;
             int[] results = new int[3];
             while (i != null)
