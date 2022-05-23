@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MaxSubArraySum
 {
@@ -10,18 +6,18 @@ namespace MaxSubArraySum
     {
         public int MaxSum(int[] arr, int k)
         {
-            int maxSum = 0;
-            int windowSum = 0;
-            int tail = 0;
+            int maxSum = int.MinValue;
 
+            int sum = 0;
+            int tail = 0;
             for (int head = 0; head < arr.Length; head++)
             {
-                windowSum += arr[head];
+                sum += arr[head];
 
-                if ((head - tail + 1) == k)
+                if (head - tail + 1 == k)
                 {
-                    maxSum = Math.Max(maxSum, windowSum);
-                    windowSum -= arr[tail++];
+                    maxSum = Math.Max(maxSum, sum);
+                    sum -= arr[tail++];
                 }
             }
 
