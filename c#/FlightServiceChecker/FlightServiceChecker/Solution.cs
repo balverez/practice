@@ -24,7 +24,7 @@ namespace FlightServiceChecker
                 {
                     visited.Add(airport);
 
-                    List<string>? nonstops = originDestinationsMap.GetValueOrDefault(airport) ?? new();
+                    List<string> nonstops = originDestinationsMap.GetValueOrDefault(airport, new());
                     foreach (string nonstop in nonstops)
                     {
                         if (!visited.Contains(nonstop))

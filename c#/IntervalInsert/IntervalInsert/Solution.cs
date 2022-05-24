@@ -9,7 +9,7 @@ namespace IntervalInsert
         {
             List<List<int>> result = new();
 
-            foreach (List<int> interval in intervals)
+            foreach(List<int> interval in intervals)
             {
                 if (interval[1] < insert[0])
                     result.Add(interval);
@@ -20,12 +20,13 @@ namespace IntervalInsert
                 }
                 else
                 {
-                    insert[0] = Math.Min(insert[0], interval[0]);
-                    insert[1] = Math.Max(insert[1], interval[1]);
+                    insert[0] = Math.Min(interval[0], insert[0]);
+                    insert[1] = Math.Max(interval[1], insert[1]);
                 }
             }
 
             result.Add(insert);
+
             return result;
         }
     }

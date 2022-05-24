@@ -12,11 +12,10 @@ namespace BinaryTreeBottomUpLevelTraversal
             currentLevel.Enqueue(root);
             Queue<TreeNode> nextLevel = new();
 
-            TreeNode iterator;
+            TreeNode? iterator;
             while (currentLevel.Count > 0)
             {
                 iterator = currentLevel.Dequeue();
-
                 stack.Push(iterator.Data);
 
                 if (iterator.Right != null)

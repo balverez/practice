@@ -2,11 +2,13 @@
 {
     internal class Solution
     {
+        //O(m * n) time
+        //O(m * n) space
         public int CountIslands(int[,] grid)
         {
+            int count = 0;
             int m = grid.GetLength(0);
             int n = grid.GetLength(1);
-            int count = 0;
 
             for (int i = 0; i < m; i++)
                 for (int j = 0; j < n; j++)
@@ -21,16 +23,16 @@
             return count;
         }
 
-        private void Dfs(int[,] grid, int row, int column, int m, int n)
+        private void Dfs(int[,] grid, int i, int j, int m, int n)
         {
-            if (row < 0 || row >= m || column < 0 || column >= n || grid[row, column] != 1)
+            if (i < 0 || i >= m || j < 0 || j >= n || grid[i, j] != 1)
                 return;
 
-            grid[row, column] = 0;
-            Dfs(grid, row - 1, column, m, n);
-            Dfs(grid, row + 1, column, m, n);
-            Dfs(grid, row, column - 1, m, n);
-            Dfs(grid, row, column + 1, m, n);
+            grid[i, j] = 0;
+            Dfs(grid, i - 1, j, m, n);
+            Dfs(grid, i + 1, j, m, n);
+            Dfs(grid, i, j - 1, m, n);
+            Dfs(grid, i, j + 1, m, n);
         }
     }
 }

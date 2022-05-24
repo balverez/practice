@@ -6,10 +6,7 @@ namespace BinaryTreeMaxSumPath
     {
         internal int MaxPathSum(TreeNode? root)
         {
-            if (root == null)
-                return 0;
-
-            int maxSum = int.MinValue;
+            int maxSum = 0;
             BuildMaxPath(root, ref maxSum);
             return maxSum;
         }

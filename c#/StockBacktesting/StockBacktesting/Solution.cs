@@ -11,15 +11,11 @@ namespace StockBacktesting
         public int MaxProfit(int[] closingPrices)
         {
             int maxProfit = 0;
-            int difference;
 
-            for(int i = 1; i < closingPrices.Length; i++)
+            for (int i = 1; i < closingPrices.Length; i++)
             {
-                difference = closingPrices[i] - closingPrices[i - 1];
-                if (difference > 0)
-                {
-                    maxProfit += difference;
-                }
+                if (closingPrices[i - 1] < closingPrices[i])
+                    maxProfit += closingPrices[i] - closingPrices[i - 1];
             }
 
             return maxProfit;

@@ -63,7 +63,7 @@
         }
 
         //O(1) time
-        private protected int Parent(int i) => i >> 1;
+        private protected int Parent(int i) => (i - 1) >> 1;
 
         //O(1) time
         private protected int Left(int i) => (i << 1) + 1;
