@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HappyNumbers
 {
@@ -31,7 +28,7 @@ namespace HappyNumbers
                 n /= 10;
             }
 
-            return (int) happySum;
+            return (int)happySum;
         }
     }
 }

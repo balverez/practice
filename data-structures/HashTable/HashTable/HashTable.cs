@@ -8,23 +8,23 @@ namespace HashTable
     internal class HashTable
     {
         private readonly int _size;
-        private readonly LinkedList<Map>[] _slots;
+        private readonly List<Map>[] _slots;
 
         internal HashTable(int size)
         {
             _size = size;
-            _slots = new LinkedList<Map>[size];
+            _slots = new List<Map>[size];
         }
 
         //O(n/m) time
         internal void Insert(string key, int value)
         {
             int slot = Hash(key);
-            LinkedList<Map> chain = GetSlotChain(slot);
+            List<Map> chain = GetSlotChain(slot);
 
             if (!chain.Any(link => link.Key.Equals(key)))
             {
-                chain.AddFirst(new Map(key, value));
+                chain.Add(new Map(key, value));
             }
         }
 
@@ -32,7 +32,7 @@ namespace HashTable
         internal int? Search (string key)
         {
             int slot = Hash(key);
-            LinkedList<Map> chain = GetSlotChain(slot);
+            List<Map> chain = GetSlotChain(slot);
 
             return chain.FirstOrDefault(link => link.Key.Equals(key))?.Value;
         }
@@ -42,7 +42,7 @@ namespace HashTable
         internal void Delete(string key)
         {
             int slot = Hash(key);
-            LinkedList<Map> chain = GetSlotChain(slot);
+            List<Map> chain = GetSlotChain(slot);
 
             Map? link = chain.FirstOrDefault(link => link.Key.Equals(key));
 
@@ -54,9 +54,9 @@ namespace HashTable
         protected int Hash(string key) => Math.Abs(key.GetHashCode() % _size);
 
         //O(1) time
-        protected LinkedList<Map> GetSlotChain(int hashValue)
+        protected List<Map> GetSlotChain(int hashValue)
         {
-            LinkedList<Map> chain = _slots[hashValue];
+            List<Map> chain = _slots[hashValue];
             if (chain == null)
             {
                 chain = new();

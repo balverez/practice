@@ -8,6 +8,8 @@ namespace ArrayRotation
 {
     internal class Solution
     {
+        //O(n) time
+        //O(1) space
         public int[] RotateLeft(int[] arr, int k)
         {
             if (arr.Length <= 1)
