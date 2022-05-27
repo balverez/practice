@@ -1,25 +1,25 @@
 using Xunit;
 
-namespace AnagramsSolution
+namespace Anagrams
 {
     public class SolutionTests
     {
         [Fact]
         public void Test1()
         {
-            Assert.True(Solution.isPairAnagram("firecode", "CodEfire"));
+            Assert.True(new Solution().IsAnagram("firecode", "CodEfire"));
         }
 
         [Fact]
         public void Test2()
         {
-            Assert.False(Solution.isPairAnagram("look", "cool"));
+            Assert.False(new Solution().IsAnagram("look", "cool"));
         }
 
         [Fact]
         public void Test3()
         {
-            Assert.False(Solution.isPairAnagram("look", "coolk"));
+            Assert.False(new Solution().IsAnagram("look", "coolk"));
         }
     }
 }

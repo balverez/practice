@@ -20,7 +20,7 @@ namespace BinarySearchTreeValidation
                     left: new(14),
                     right: new(16)));
 
-            Assert.Equal(expected, new Solution().IsBST(testRoot));
+            Assert.Equal(expected, new Solution().IsValidBST(testRoot));
         }
     }
 }

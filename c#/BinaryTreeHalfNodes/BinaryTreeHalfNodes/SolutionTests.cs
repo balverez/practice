@@ -14,7 +14,7 @@ namespace BinaryTreeHalfNodes
 
             int expected = 1;
 
-            Assert.Equal(expected, new Solution().CountHalf(testRoot));
+            Assert.Equal(expected, new Solution().CountHalfNodes(testRoot));
         }
     }
 }

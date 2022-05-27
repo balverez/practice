@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TwoSum
 {
     internal class Solution
     {
-        public static int[] TwoSum(int[] arr, int target)
+        internal int[] TwoSum(int[] arr, int target)
         {
-            Dictionary<int, int> candidates = new();
+            Dictionary<int, int> valueIndexMap = new();
 
             for (int i = 0; i < arr.Length; i++)
             {
-                if (candidates.ContainsKey(arr[i]))
-                    return new int[] { candidates[arr[i]], i };
-                else
-                    candidates[target - arr[i]] = i;
+                if (valueIndexMap.ContainsKey(arr[i]))
+                    return new int[] { valueIndexMap[arr[i]], i };
+
+                valueIndexMap[target - arr[i]] = i;
             }
 
             return new int[] { };

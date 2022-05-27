@@ -9,36 +9,34 @@ namespace StringPermutations
         internal HashSet<string> Permutations(string str)
         {
             HashSet<string> permutations = new();
+
             if (string.IsNullOrEmpty(str))
                 return permutations;
-            else
+            if (str.Length == 1)
             {
-                string first = str[0].ToString();
-
-                HashSet<string> remainderPermutations = Permutations(str[1..]);
-                if (remainderPermutations.Count == 0)
-                    return new() { first };
-
-                foreach (string remainingPermutation in remainderPermutations)
-                {
-                    foreach (string permutation in InsertChar(first, remainingPermutation))
-                    {
-                        permutations.Add(permutation);
-                    }
-                }
-
+                permutations.Add(str[0].ToString());
                 return permutations;
             }
+
+            HashSet<string> subPermutations = Permutations(str[1..]);
+
+            foreach (string sub in subPermutations)
+            {
+                List<string> splicedStrings = SpliceChar(str[0], sub);
+                
+                foreach (string permutation in splicedStrings)
+                    permutations.Add(permutation);
+            }
+
+            return permutations;
         }
 
-        private HashSet<string> InsertChar(string c, string str)
+        private List<string> SpliceChar(char c, string permutation)
         {
-            HashSet<string> result = new();
+            List<string> result = new();
 
-            for (int i = 0; i <= str.Length; i++)
-            {
-                result.Add(str[0..i] + c + str[i..]);
-            }
+            for (int i = 0; i <= permutation.Length; i++)
+                result.Add(permutation[..i] + c + permutation[i..]);
 
             return result;
         }

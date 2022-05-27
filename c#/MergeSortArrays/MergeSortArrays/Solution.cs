@@ -1,10 +1,8 @@
-﻿using System;
-
-namespace MergeSortArrays
+﻿namespace MergeSortArrays
 {
     internal class Solution
     {
-        public int[] MergeSort(int[] arr1, int[] arr2)
+        internal int[] MergeSort(int[] arr1, int[] arr2)
         {
             int[] result = new int[arr1.Length + arr2.Length];
 

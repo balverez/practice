@@ -2,27 +2,25 @@
 {
     internal class Solution
     {
-        internal ListNode? ReverseInPairs(ListNode head)
+        internal ListNode? ReversePairs(ListNode? head)
         {
-            ListNode newHead = new(-1, head);
-            ListNode? iterator = head;
+            ListNode sentinel = new(int.MinValue, head);
+            ListNode previous = sentinel;
             ListNode? i;
-            ListNode? j;
-            ListNode? previous = newHead;
+            ListNode j;
 
-            while (iterator != null && iterator.Next != null)
+            while (head != null && head.Next != null)
             {
-                i = iterator;
-                j = iterator.Next;
-                previous.Next = j;
+                i = head;
+                j = head.Next;
                 i.Next = j.Next;
                 j.Next = i;
-
+                previous.Next = j;
                 previous = i;
-                iterator = i.Next;
+                head = i.Next;
             }
 
-            return newHead.Next;
+            return sentinel.Next;
         }
     }
 }

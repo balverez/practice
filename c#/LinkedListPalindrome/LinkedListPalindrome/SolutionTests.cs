@@ -28,7 +28,7 @@ namespace LinkedListPalindrome
                 }
             }
 
-            Assert.Equal(expected, new Solution().IsPalindorme(testHead));
+            Assert.Equal(expected, new Solution().IsPalindrome(testHead));
         }
     }
 }

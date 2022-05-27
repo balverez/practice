@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BetterRecursivePower
+﻿namespace BetterRecursivePower
 {
     internal class Solution
     {
-        public double BetterPower(double b, int n)
+        //O(logn) time
+        //O(logn) space
+        internal double BetterPower(double b, int x)
         {
-            if (n == 0)
+            if (x == 0)
                 return 1D;
-            if (n % 2 == 0)
-                return n < 0
-                    ? BetterPower(1 / (b * b), -n / 2)
-                    : BetterPower(b * b, n / 2);
-            return n < 0
-                ? BetterPower(1 / b, -n)
-                : b * BetterPower(b, n - 1);
+            else if (x % 2 == 0)
+                return x < 0
+                    ? BetterPower(1 / (b * b), -x / 2)
+                    : BetterPower(b * b, x / 2);
+
+            return x < 0
+                ? BetterPower(1 / b, -x)
+                : b * BetterPower(b, x - 1);
         }
     }
 }

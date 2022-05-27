@@ -1,55 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LinkedListPalindrome
+﻿namespace LinkedListPalindrome
 {
     internal class Solution
     {
-        public bool IsPalindorme(ListNode? head)
+        internal bool IsPalindrome(ListNode? head)
         {
-            if (head == null)
-                return true;
+            ListNode? midpoint = FindMiddle(head);
+            ListNode? reversedHalf = Reverse(midpoint);
 
-            ListNode? middle = FindMiddle(head);
-
-            ListNode? firstHalf = head;
-            ListNode? reversedSecondHalf = Reverse(middle);
-
-            while (firstHalf != null && reversedSecondHalf != null)
+            while (head != null && reversedHalf != null)
             {
-                if (firstHalf.Data != reversedSecondHalf.Data)
+                if (head.Data != reversedHalf.Data)
                     return false;
-
-                firstHalf = firstHalf.Next;
-                reversedSecondHalf = reversedSecondHalf.Next;
+                head = head.Next;
+                reversedHalf = reversedHalf.Next;
             }
 
             return true;
         }
 
-        private ListNode? FindMiddle(ListNode? head)
+        internal ListNode? FindMiddle(ListNode? head)
         {
-            ListNode? slow = head;
             ListNode? fast = head;
+            ListNode? slow = head;
 
-            while (fast != null && fast.Next != null)
+            while(fast?.Next != null)
             {
-                slow = slow?.Next;
                 fast = fast.Next.Next;
+                slow = slow.Next;
             }
 
             return slow;
         }
 
-        private ListNode? Reverse(ListNode? head)
+        internal ListNode? Reverse(ListNode? head)
         {
-            ListNode? next;
             ListNode? previous = null;
+            ListNode? next;
             ListNode? iterator = head;
-
             while (iterator != null)
             {
                 next = iterator.Next;

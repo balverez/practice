@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ArrayRotation
+﻿namespace ArrayRotation
 {
     internal class Solution
     {
@@ -12,10 +6,10 @@ namespace ArrayRotation
         //O(1) space
         public int[] RotateLeft(int[] arr, int k)
         {
-            if (arr.Length <= 1)
-                return arr;
-
             k = k % arr.Length;
+
+            if (arr.Length <= 1 || k == 0)
+                return arr;
 
             arr = Reverse(arr, 0, arr.Length - 1);
             arr = Reverse(arr, 0, arr.Length - 1 - k);

@@ -2,9 +2,7 @@
 {
     internal class Solution
     {
-        //O(n) time
-        //O(n) space
-        public string MutateDnaPairs(string sequence)
+        internal string MutateDnaPairs(string sequence)
         {
             if (sequence.Length < 2)
                 return sequence;

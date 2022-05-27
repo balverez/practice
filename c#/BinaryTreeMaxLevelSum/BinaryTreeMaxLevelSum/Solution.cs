@@ -14,32 +14,32 @@ namespace BinaryTreeMaxLevelSum
             currentLevel.Enqueue(root);
             Queue<TreeNode> nextLevel = new();
 
-            int level = 0;
-            int levelSum = 0;
-            int maxLevel = int.MinValue;
             int maxSum = int.MinValue;
-            TreeNode node;
+            int maxLevel = int.MinValue;
+            int sum = 0;
+            int level = 0;
+            TreeNode iterator;
             while (currentLevel.Count > 0)
             {
-                node = currentLevel.Dequeue();
-                levelSum += node.Data;
+                iterator = currentLevel.Dequeue();
+                sum += iterator.Data;
 
-                if (node.Left != null)
-                    nextLevel.Enqueue(node.Left);
+                if (iterator.Left != null)
+                    nextLevel.Enqueue(iterator.Left);
 
-                if (node.Right != null)
-                    nextLevel.Enqueue(node.Right);
+                if (iterator.Right != null)
+                    nextLevel.Enqueue(iterator.Right);
 
                 if (currentLevel.Count == 0)
                 {
-                    if (levelSum > maxSum)
+                    if (sum > maxSum)
                     {
-                        maxSum = levelSum;
+                        maxSum = sum;
                         maxLevel = level;
                     }
 
                     level++;
-                    levelSum = 0;
+                    sum = 0;
                     currentLevel = new(nextLevel);
                     nextLevel = new();
                 }

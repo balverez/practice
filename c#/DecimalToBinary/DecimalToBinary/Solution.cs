@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DecimalToBinary
+﻿namespace DecimalToBinary
 {
     internal class Solution
     {
-        public string ToBinary(int decimalNumber)
+        internal string ToBinary(int integer)
         {
-            if (decimalNumber <= 1)
-                return "1";
+            if (integer == 0)
+                return string.Empty;
 
-            return ToBinary(decimalNumber / 2) + (decimalNumber % 2);
+            return ToBinary(integer / 2) + (integer % 2).ToString();
         }
     }
 }

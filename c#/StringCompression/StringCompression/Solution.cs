@@ -6,23 +6,25 @@ namespace StringCompression
     {
         public string Compress(string input)
         {
-            StringBuilder compressedString = new();
+            if (string.IsNullOrEmpty(input))
+                return string.Empty;
 
-            int accumulator = 0;
+            StringBuilder compressed = new();
+
+            int count = 0;
             for (int i = 0; i < input.Length; i++)
             {
-                accumulator++;
+                count++;
                 if (i + 1 == input.Length || input[i] != input[i + 1])
                 {
-                    compressedString.Append(input[i]);
-                    if (accumulator > 1)
-                        compressedString.Append(accumulator);
-
-                    accumulator = 0;
+                    compressed.Append(input[i]);
+                    if (count > 1)
+                        compressed.Append(count);
+                    count = 0;
                 }
             }
 
-            return compressedString.ToString();
+            return compressed.ToString();
         }
     }
 }

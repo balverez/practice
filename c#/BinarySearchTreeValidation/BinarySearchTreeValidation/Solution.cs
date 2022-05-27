@@ -1,34 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BinarySearchTreeValidation
 {
     internal class Solution
     {
-        public bool IsBST(TreeNode root)
+        internal bool IsValidBST(TreeNode root)
         {
             if (root == null)
                 return true;
 
-            EnrichedTreeNode node;
-            Queue<EnrichedTreeNode> queue = new();
-            queue.Enqueue(new EnrichedTreeNode(root, int.MinValue, int.MaxValue));
+            Queue<BSTNode> queue = new();
+            queue.Enqueue(new(root, int.MinValue, int.MaxValue));
 
+            BSTNode iterator;
             while (queue.Count > 0)
             {
-                node = queue.Dequeue();
+                iterator = queue.Dequeue();
 
-                if (!node.IsValid())
+                if (!iterator.IsValid())
                     return false;
 
-                if (node.Left != null)
-                    queue.Enqueue(new EnrichedTreeNode(node.Left, node.Min, node.Data));
+                if (iterator.Left != null)
+                    queue.Enqueue(new(iterator.Left, iterator.Min, iterator.Data));
 
-                if (node.Right != null)
-                    queue.Enqueue(new EnrichedTreeNode(node.Right, node.Data, node.Max));
+                if (iterator.Right != null)
+                    queue.Enqueue(new(iterator.Right, iterator.Data, iterator.Max));
             }
 
             return true;

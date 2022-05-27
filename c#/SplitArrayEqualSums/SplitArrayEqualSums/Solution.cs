@@ -10,22 +10,22 @@ namespace SplitArrayEqualSums
         {
             int sum = input.Sum();
 
-            if (sum % 2 != 0)
-            {
+            if (sum == 0)
+                return true;
+            else if (sum % 2 != 0)
                 return false;
-            }
 
-            return Search(input, 0, sum / 2);
+            return Search(input, sum / 2, 0);    
         }
 
-        private bool Search(int[] input, int i, int target)
+        private bool Search(int[] input, int target, int i)
         {
-            if (i == input.Length)
+            if (i >= input.Length)
                 return target == 0;
             else if (target == 0)
                 return true;
 
-            return Search(input, i + 1, target - input[i]) || Search(input, i + 1, target);
+            return Search(input, target, i + 1) || Search(input, target - input[i], i + 1);
         }
     }
 }

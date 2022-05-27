@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace AnagramsSolution
+namespace Anagrams
 {
     internal class Solution
     {
-        public static bool isPairAnagram(string s1, string s2)
+        internal bool IsAnagram(string s1, string s2)
         {
             Dictionary<char, int> charMap = new();
 
@@ -15,7 +15,7 @@ namespace AnagramsSolution
             foreach (char c in s2.ToUpper())
                 charMap[c] = charMap.GetValueOrDefault(c, 0) - 1;
 
-            return charMap.All(entry => entry.Value == 0);
+            return !charMap.Any(c => c.Value != 0);
         }
     }
 }
