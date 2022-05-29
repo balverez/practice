@@ -1,6 +1,6 @@
 Arrays and Hashing
 Status			Problem													Difficulty
-✗				Contains Duplicate										Easy
+✓				Contains Duplicate										Easy
 ✗				Valid Anagram											Easy
 ✗				Two Sum													Easy
 ✗				Group Anagrams											Medium
@@ -14,7 +14,7 @@ Status			Problem													Difficulty
 
 Two Pointers
 Status			Problem													Difficulty
-✗				Valid Palindrome										Easy
+✓				Valid Palindrome										Easy
 ✗				Two Sum II												Medium
 ✗				3Sum													Medium
 ✗				Container with Most Water								Medium
