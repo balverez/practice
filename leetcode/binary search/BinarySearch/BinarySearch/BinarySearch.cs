@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(logn) time
+        //O(1) space
         public int Search(int[] nums, int target)
         {
             int i;

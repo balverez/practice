@@ -2,6 +2,8 @@
 {
     internal class Solution
     {
+        //O(n) time
+        //O(n) space
         internal int[][] Insert(int[][] intervals, int[] newInterval)
         {
             List<int[]> result = new();

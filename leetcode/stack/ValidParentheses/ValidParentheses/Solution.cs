@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(n) time
+        //O(n) space
         public bool IsValid(string s)
         {
             Stack<char> stack = new();

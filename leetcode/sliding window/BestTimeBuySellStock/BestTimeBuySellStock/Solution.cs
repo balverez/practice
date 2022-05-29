@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(n) time
+        //O(1) space
         public int MaxProfit(int[] prices)
         {
             int min = int.MaxValue;

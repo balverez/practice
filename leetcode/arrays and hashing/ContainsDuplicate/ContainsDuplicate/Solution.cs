@@ -1,5 +1,7 @@
 ﻿namespace ContainsDuplicate
 {
+    //O(n) time
+    //O(n) space
     public class Solution
     {
         public bool ContainsDuplicate(int[] nums)
