@@ -24,7 +24,7 @@ Status			Problem													Difficulty
 
 Sliding Window
 Status			Problem													Difficulty
-✗				Best Time to Buy & Sell Stock							Easy
+✓				Best Time to Buy & Sell Stock							Easy
 ✗				Longest Substring Without Repeating Characters			Medium
 ✗				Longest Repeating Character Replacement					Medium
 ✗				Permutation in String									Medium
@@ -35,7 +35,7 @@ Status			Problem													Difficulty
 
 Stack
 Status			Problem													Difficulty
-✗				Valid Parentheses										Easy
+✓				Valid Parentheses										Easy
 ✗				Min Stack												Easy
 ✗				Evaluate Reverse Polish Notation						Medium
 ✗				Generate Parentheses									Medium
@@ -47,7 +47,7 @@ Status			Problem													Difficulty
 
 Binary Search
 Status			Problem													Difficulty
-✗				Binary Search											Easy
+✓				Binary Search											Easy
 ✗				Search a 2D Matrix										Medium
 ✗				Koko Eating Bananas										Medium
 ✗				Search Rotated Sorted Array								Medium
@@ -60,7 +60,7 @@ Status			Problem													Difficulty
 
 Linked List
 Status			Problem													Difficulty
-✗				Reverse Linked List										Easy
+✓				Reverse Linked List										Easy
 ✗				Merge Two Linked Lists									Easy
 ✗				Reorder List											Medium
 ✗				Remove Nth Node from End of List						Medium
@@ -76,7 +76,7 @@ Status			Problem													Difficulty
 
 Trees
 Status			Problem													Difficulty
-✗				Invert Binary Tree										Easy
+✓				Invert Binary Tree										Easy
 ✗				Maximum Depth of Binary Tree							Easy
 ✗				Diameter of a Binary Tree								Easy
 ✗				Balanced Binary Tree									Easy
