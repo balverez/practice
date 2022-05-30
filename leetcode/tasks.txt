@@ -96,7 +96,7 @@ Status			Problem													Difficulty
 
 Tries
 Status			Problem													Difficulty
-✗				Implement Trie											Medium
+✓				Implement Trie											Medium
 ✗				Design Add and Search Word Data Structure				Medium
 ✗				Word Search II											Hard
 
@@ -104,7 +104,7 @@ Status			Problem													Difficulty
 
 Heap and Priority Queue
 Status			Problem													Difficulty
-✗				Kth Largest Element in a Stream							Easy
+✓				Kth Largest Element in a Stream							Easy
 ✗				Last Stone Weight										Easy
 ✗				K Closest Points to Origin								Medium
 ✗				Kth Largest Element in an Array							Medium
@@ -116,7 +116,7 @@ Status			Problem													Difficulty
 
 Backtracking
 Status			Problem													Difficulty
-✗				Subsets													Medium
+✓				Subsets													Medium
 ✗				Combination Sum											Medium
 ✗				Permutations											Medium
 ✗				Subsets II												Medium
@@ -130,10 +130,10 @@ Status			Problem													Difficulty
 
 Graphs
 Status			Problem													Difficulty
-✗				Number of Islands										Medium
-✗				Clone Graph												Medium
-✗				Max Area of Island										Medium
-✗				Pacific Atlantic Waterflow								Medium
+✓				Number of Islands										Medium
+✓				Clone Graph												Medium
+✓				Max Area of Island										Medium
+✓				Pacific Atlantic Waterflow								Medium
 ✗				Surrounded Regions										Medium
 ✗				Rotting Oranges											Medium
 ✗				Walls and Gates											Medium
