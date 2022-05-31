@@ -134,7 +134,7 @@ Status			Problem													Difficulty
 ✓				Clone Graph												Medium
 ✓				Max Area of Island										Medium
 ✓				Pacific Atlantic Waterflow								Medium
-✗				Surrounded Regions										Medium
+✓				Surrounded Regions										Medium
 ✗				Rotting Oranges											Medium
 ✗				Walls and Gates											Medium
 ✗				Course Schedule											Medium
