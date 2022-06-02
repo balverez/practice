@@ -3,7 +3,7 @@
     internal class Solution
     {
         //O(n) time
-        //O(n) space
+        //O(1) space
         internal int[][] Insert(int[][] intervals, int[] newInterval)
         {
             List<int[]> result = new();

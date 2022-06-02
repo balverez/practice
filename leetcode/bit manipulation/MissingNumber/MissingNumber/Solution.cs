@@ -1,14 +1,16 @@
 ﻿namespace MissingNumber
 {
-    internal class Solution
+    public class Solution
     {
         //O(n) time
         //O(1) space
-        internal int MissingNumber(int[] nums)
+        public int MissingNumber(int[] nums)
         {
-            int sum = (nums.Length * (nums.Length + 1)) / 2;
+            int bitmask = nums.Length;
+            for (int i = 0; i < nums.Length; i++)
+                bitmask ^= i ^ nums[i];
 
-            return sum - nums.Sum();
+            return bitmask;
         }
     }
 }

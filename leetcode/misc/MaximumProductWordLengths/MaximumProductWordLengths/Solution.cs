@@ -2,12 +2,15 @@
 {
     public class Solution
     {
+        //O(n^2 + l) time
+        //O(n) space
         public int MaxProduct(string[] words)
         {
             int n = words.Length;
             int[] masks = new int[n];
             
             int bitmask;
+            //O(n + l)
             for (int i = 0; i < n; i++)
             {
                 bitmask = 0;
@@ -17,6 +20,7 @@
                 masks[i] = bitmask;
             }
 
+            //O(n^2)
             int maxProduct = 0;
             for (int i = 0; i < n; i++)
                 for (int j = i + 1; j < n; j++)

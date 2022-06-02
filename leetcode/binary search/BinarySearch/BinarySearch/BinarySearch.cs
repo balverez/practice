@@ -11,7 +11,7 @@
             int right = nums.Length - 1;
             while (left <= right)
             {
-                i = left + (right - left) / 2;
+                i = left + ((right - left) / 2);
                 if (nums[i] == target)
                     return i;
 

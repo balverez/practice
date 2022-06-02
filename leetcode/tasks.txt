@@ -1,8 +1,8 @@
 Arrays and Hashing
-Status			Problem													Difficulty
-✓				Contains Duplicate										Easy
-✗				Valid Anagram											Easy
-✗				Two Sum													Easy
+Status			Problem													Difficulty	Notes
+✓				Contains Duplicate										Easy		Maintain a hash set that holds unique values. Return true when an array element is inspected and detected in the set.
+✓				Valid Anagram											Easy		Create a dictionary for each character in the input. Each character mapping should be incremented on every instance in the first string and decremented in the second string. Reject if any mappings in the dictionary are non-zero.
+✓				Two Sum													Easy		Create a dictionary that maps the value of an array element to an index. At each iteration, calculate the difference needed to find the target and query the hash table. If the difference is present, return the indices.
 ✗				Group Anagrams											Medium
 ✗				Top K Frequent Elements									Medium
 ✗				Product of Array Except Self							Medium
@@ -13,9 +13,9 @@ Status			Problem													Difficulty
 
 
 Two Pointers
-Status			Problem													Difficulty
-✓				Valid Palindrome										Easy
-✗				Two Sum II												Medium
+Status			Problem													Difficulty	Notes
+✓				Valid Palindrome										Easy		Set up left and right pointers, ensuring that left is always to the left of the right pointer. Evelauate each character in the string from both directions, ensuring that each character is alphanumeric and that they are the same.
+✓				Two Sum II												Medium		Iterate through the input with left and right pointers, incrementing the left or decrementing the right depending on the difference between the elements and the target.
 ✗				3Sum													Medium
 ✗				Container with Most Water								Medium
 ✗				Trapping Rain Water										Hard
@@ -23,9 +23,9 @@ Status			Problem													Difficulty
 
 
 Sliding Window
-Status			Problem													Difficulty
-✓				Best Time to Buy & Sell Stock							Easy
-✗				Longest Substring Without Repeating Characters			Medium
+Status			Problem													Difficulty	Notes
+✓				Best Time to Buy & Sell Stock							Easy		Track the input minimum in previous entries of the array and compare against the current entry to see evaluate if it is profit maximum. Comparisons can't begin until the second element of the input.
+✓				Longest Substring Without Repeating Characters			Medium		Track the start of the sliding window and account for its length in a 0-index scheme. Use a dictionary to store character indices and move the sliding window if a repeat is detected in the window to pass that duplicate.
 ✗				Longest Repeating Character Replacement					Medium
 ✗				Permutation in String									Medium
 ✗				Minimum Window Substring								Hard
@@ -34,9 +34,9 @@ Status			Problem													Difficulty
 
 
 Stack
-Status			Problem													Difficulty
-✓				Valid Parentheses										Easy
-✗				Min Stack												Easy
+Status			Problem													Difficulty	Notes
+✓				Valid Parentheses										Easy		Use a stack to push closed parantheses when open ones are detected in the input. When a closed parentheses is detected, ensure the stack is both non-empty and pops an identical character. Ensure the stack is empty at the end.
+✓				Min Stack												Easy		Use a list to store a tuple holding a value and a minimum up to that point. Track a global minimum and evaluate on both pushes and pops.
 ✗				Evaluate Reverse Polish Notation						Medium
 ✗				Generate Parentheses									Medium
 ✗				Daily Temperatures										Medium
@@ -46,9 +46,9 @@ Status			Problem													Difficulty
 
 
 Binary Search
-Status			Problem													Difficulty
-✓				Binary Search											Easy
-✗				Search a 2D Matrix										Medium
+Status			Problem													Difficulty	Notes
+✓				Binary Search											Easy		Make left and right pointers into the array and continuously update them on a pivot.
+✓				Search a 2D Matrix										Medium		Treat the 2D matrix as a virtual 1D array since it is sorted. A pivot can be pinpointed by halving the number of elements. The pivot row can be determined by dividing by n and the pivot column can be ascertained by modding by n.
 ✗				Koko Eating Bananas										Medium
 ✗				Search Rotated Sorted Array								Medium
 ✗				Find Minimum in Rotated Sorted Array					Medium
@@ -59,10 +59,10 @@ Status			Problem													Difficulty
 
 
 Linked List
-Status			Problem													Difficulty
-✓				Reverse Linked List										Easy
-✗				Merge Two Linked Lists									Easy
-✗				Reorder List											Medium
+Status			Problem													Difficulty	Notes
+✓				Reverse Linked List										Easy		Maintain a sliding window of pointers as the list is reversed, with pointers to previous, next, and current nodes.
+✗				Merge Two Linked Lists									Easy		Approach the problem like merge sort and exhaust one of the lists by comparing the two lists' values and taking the minimum at each iteration. After one is exhausted, we can connect our iterator to the remaining list.
+✗				Reorder List											Medium		This requires finding the midpoint of the linked list, reversing the second half, and merging the two halves in the specified order.
 ✗				Remove Nth Node from End of List						Medium
 ✗				Copy List with Random Pointer							Medium
 ✗				Add Two Numbers											Medium
@@ -75,10 +75,10 @@ Status			Problem													Difficulty
 
 
 Trees
-Status			Problem													Difficulty
-✓				Invert Binary Tree										Easy
-✗				Maximum Depth of Binary Tree							Easy
-✗				Diameter of a Binary Tree								Easy
+Status			Problem													Difficulty	Notes
+✓				Invert Binary Tree										Easy		A binary tree can be inverted either recursively or iteratively by swapping the root's children.
+✓				Maximum Depth of Binary Tree							Easy		This can be done recursively with a DFS search that evaluates the max result of each subtree. It can also be done iteratively with a BFS where the depth is incremented as new levels are discovered.
+✓				Diameter of a Binary Tree								Easy		This can be done via a recursive DFS where the diameter of each root's subtree is evaluated against a referenced maximum.
 ✗				Balanced Binary Tree									Easy
 ✗				Same Tree												Easy
 ✗				Subtree of Another Tree									Easy
@@ -95,18 +95,18 @@ Status			Problem													Difficulty
 
 
 Tries
-Status			Problem													Difficulty
-✓				Implement Trie											Medium
+Status			Problem													Difficulty	Notes
+✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a subclass that returns a TrieNode for custom evaluation.
 ✗				Design Add and Search Word Data Structure				Medium
 ✗				Word Search II											Hard
 
 
 
 Heap and Priority Queue
-Status			Problem													Difficulty
-✓				Kth Largest Element in a Stream							Easy
-✗				Last Stone Weight										Easy
-✗				K Closest Points to Origin								Medium
+Status			Problem													Difficulty	Notes
+✓				Kth Largest Element in a Stream							Easy		We can use a priority queue that utilizes a min heap and continually trim the structure until it holds k elements. This structure will always hold the kth largest element at the top.
+✓				Last Stone Weight										Easy		We can use a priority queue with a custom comparator that turns its sorting implementation into a max heap. The first stone retrieved from the heap will be the largest.
+✓				K Closest Points to Origin								Medium		We need to use a min heap priority that utilizes a double as a key. We can store the index of the evaluated point and its calculated distance from the origin into the heap and pull the needed elements for a result.
 ✗				Kth Largest Element in an Array							Medium
 ✗				Task Scheduler											Medium
 ✗				Design Twitter											Medium
@@ -115,8 +115,8 @@ Status			Problem													Difficulty
 
 
 Backtracking
-Status			Problem													Difficulty
-✓				Subsets													Medium
+Status			Problem													Difficulty	Notes
+✓				Subsets													Medium		Focus on the length of each subset, this allows for a backtracking approach where different candidates are evaluated for length and popped for other data points after getting evaluated.
 ✗				Combination Sum											Medium
 ✗				Permutations											Medium
 ✗				Subsets II												Medium
@@ -129,14 +129,14 @@ Status			Problem													Difficulty
 
 
 Graphs
-Status			Problem													Difficulty
-✓				Number of Islands										Medium
-✓				Clone Graph												Medium
-✓				Max Area of Island										Medium
-✓				Pacific Atlantic Waterflow								Medium
-✓				Surrounded Regions										Medium
+Status			Problem													Difficulty	Notes
+✓				Number of Islands										Medium		We can scan the input matrix and trigger a DFS or BFS when we detect an island. During the search, we can map an island off the grid, leaving only the unconnected islands on the grid for mapping.
+✓				Clone Graph												Medium		The node we retrieve needs to be set up in a queue for iterative neighbor detection. We can use a Dictionary to track previously discovered nodes and easily recover them for neighbor mapping. Make sure not to fall into a cycle.
+✓				Max Area of Island										Medium		We can scan the input and trigger an iterative DFS (stacks) or BFS (queues) when an island is detected. As we we map the island, we can keep a count of the area to return it for evaluation.
+✓				Pacific Atlantic Waterflow								Medium		Identifying border regions next each ocean allows us to only trigger either DFS or BFS on them to see which regions can underflow to each border region. We can maintain two matrices to evaluate for points that intersect.
+✓				Surrounded Regions										Medium		Border regions are the only protected regions. Identifying these and triggering either DFS or BFS on each of them allows us to identify which are protected from being surrounded.
 ✗				Rotting Oranges											Medium
-✗				Walls and Gates											Medium
+✓				Walls and Gates											Medium		Identify the gate cells and queue them for a BFS. This will iterate through all gates and find the nearest neighbors. Ensure the walls and gates are not overwritten and that a BFS ceases when it cannot minimize a path to a gate.
 ✗				Course Schedule											Medium
 ✗				Course Schedule II										Medium
 ✗				Redundant Connection									Medium
@@ -158,9 +158,9 @@ Status			Problem													Difficulty
 
 
 1-D Dynamic Programming
-Status			Problem													Difficulty
-✗				Climbing Stairs											Easy
-✗				Min Cost Climbing Stairs								Medium
+Status			Problem													Difficulty	Notes
+✓				Climbing Stairs											Easy		A variation on the fibonacci sequence, we can set the first two steps to predetermined values and calculate values for each preceding step. We can the previous two steps in the fashion of a sliding window at each iteration.
+✓				Min Cost Climbing Stairs								Medium		Similar to climbing stairs but instead of tabulating steps, we are keeping a running cost of each step and looking for the minimal cost. We must track the previous two steps using a sliding window.
 ✗				House Robber											Medium
 ✗				House Robber II											Medium
 ✗				Longest Palindromic Substring							Medium
@@ -175,10 +175,10 @@ Status			Problem													Difficulty
 
 
 2-D Dynamic Programming
-Status			Problem													Difficulty
-✗				Unique Paths											Medium
-✗				Longest Common Subsequence								Medium
-✗				Best Time to Buy/Sell Stock With Cooldown				Medium
+Status			Problem													Difficulty	Notes
+✓				Unique Paths											Medium		The limited graph traversal allows for a controlled distribution of the problem through memoization. We can use previously evaluated cells to identify the number of unique paths in the current cell.
+✓				Longest Common Subsequence								Medium		We can define a two-dimensional matrix using the lengths of the inputs (and the empty string) to represent points where identical characters are located. Previously evaluated cells can be used to evaluate new ones. 
+✗				Best Time to Buy/Sell Stock With Cooldown				Medium		
 ✗				Coin Change II											Medium
 ✗				Target Sum												Medium
 ✗				Interleaving String										Medium
@@ -191,8 +191,8 @@ Status			Problem													Difficulty
 
 
 Greedy
-Status			Problem													Difficulty
-✗				Maximum Subarray										Easy
+Status			Problem													Difficulty	Notes
+✓				Maximum Subarray										Easy		Devise a method to evaluate the current subarray at every iteration to see if it is either worth supplmenting or needs replacing.
 ✗				Jump Game												Medium
 ✗				Jump Game II											Medium
 ✗				Gas Station												Medium
@@ -204,9 +204,9 @@ Status			Problem													Difficulty
 
 
 Intervals
-Status			Problem													Difficulty
-✓				Insert Interval											Medium
-✗				Merge Intervals											Medium
+Status			Problem													Difficulty	Notes
+✓				Insert Interval											Medium		Create a result list where intervals are iteratively combined from the input list and one variable insert interval. Two intervals can either be sequential one after the other or overlapping.
+✗				Merge Intervals											Medium		
 ✗				Non-Overlapping Intervals								Medium
 ✗				Meeting Rooms											Easy
 ✗				Meeting Rooms II										Medium
@@ -215,9 +215,9 @@ Status			Problem													Difficulty
 
 
 Math and Geometry
-Status			Problem													Difficulty
-✗				Rotate Image											Medium
-✗				Spiral Matrix											Medium
+Status			Problem													Difficulty	Notes
+✓				Rotate Image											Medium		A clockwise rotation requires a vertical reflection over a transposed matrix. A counterclockwise rotation requires a horizontal reflection over a transposed matrix. In-place modification calls for careful indexing.
+✓				Spiral Matrix											Medium		A method of controlling the direction of the iterations and defining the boundaries of the matrix and our search is key.
 ✗				Set Matrix Zeroes										Medium
 ✗				Happy Number											Easy
 ✗				Plus One												Easy
@@ -228,11 +228,11 @@ Status			Problem													Difficulty
 
 
 Bit Manipulation
-Status			Problem													Difficulty
-✗				Single Number											Easy
+Status			Problem													Difficulty	Notes
+✓				Single Number											Easy		Craft a bitmask and use the xor operator to identify the single number.
 ✗				Number of 1 Bits										Easy
 ✗				Counting Bits											Easy
 ✗				Reverse Bits											Easy
-✗				Missing Number											Easy
-✗				Sum of Two Integers										Medium
-✗				Reverse Integer											Medium
+✗				Missing Number											Easy		Initialize a bitmask to the length of the input array and use the formatted array input and indices over that input to isolate our target number.
+✗				Reverse Integer											Medium			
+✗				Sum of Two Integers										Medium	

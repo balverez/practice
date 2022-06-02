@@ -19,8 +19,8 @@
                 _maxHeap.Dequeue();
         }
 
-        //O(k) time
-        //O(1) space
+        //O(logk) time
+        //O(k) space
         public int Add(int val)
         {
             _maxHeap.Enqueue(val, val);

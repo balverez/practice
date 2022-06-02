@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(m * n) time
+        //O(m * n) space
         public int NumIslands(char[][] grid)
         {
             int islandCount = 0;

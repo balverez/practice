@@ -2,8 +2,8 @@
 {
     public class Solution
     {
-        //O(n) time
-        //O(1) space
+        //O(n(2^n)) time
+        //O(n) space
         public IList<IList<int>> Subsets(int[] nums)
         {
             List<IList<int>> subsets = new();
@@ -15,8 +15,6 @@
             return subsets;
         }
 
-        //O(n(2^n)) time
-        //O(n) space
         private void Backtrack(
             int first,
             int n,

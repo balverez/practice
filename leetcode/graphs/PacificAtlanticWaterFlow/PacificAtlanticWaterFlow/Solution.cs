@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(m * n) time
+        //O(m * n) space
         public IList<IList<int>> PacificAtlantic(int[][] heights)
         {
             List<IList<int>> result = new();
