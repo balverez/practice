@@ -79,10 +79,10 @@ Status			Problem													Difficulty	Notes
 ✓				Invert Binary Tree										Easy		A binary tree can be inverted either recursively or iteratively by swapping the root's children.
 ✓				Maximum Depth of Binary Tree							Easy		This can be done recursively with a DFS search that evaluates the max result of each subtree. It can also be done iteratively with a BFS where the depth is incremented as new levels are discovered.
 ✓				Diameter of a Binary Tree								Easy		This can be done via a recursive DFS where the diameter of each root's subtree is evaluated against a referenced maximum.
-✗				Balanced Binary Tree									Easy
-✗				Same Tree												Easy
-✗				Subtree of Another Tree									Easy
-✗				Lowest Common Ancestor of a BST							Easy
+✓				Balanced Binary Tree									Easy		Pass a reference to a bool variable that only gets updated if a tree's root detects a large height difference between its subtrees. We can use a recursive Dfs to iterate through the tree and tally the heights.
+✓				Same Tree												Easy		Evaluate both root nodes with a xor operation to see if one is non-null. The check if both are null or if the value are equivalent and recursively call the function with the children nodes.
+✓				Subtree of Another Tree									Easy		You can iterate through the root until a node with the equivalent value to the subroot is found and trigger a call to see if the subtrees match. Evaluating matching trees can be done recursively and iteratively.
+✓				Lowest Common Ancestor of a BST							Easy		Use the properties of a BST for an efficient search of the targets. If each target is on a different subtree, we have found the lowest common ancestor. The search can be done either iteratively or recursively.
 ✗				Binary Tree Level Order Traversal						Medium
 ✗				Binary Tree Right Side View								Medium
 ✗				Count Good Nodes in a Binary Tree						Medium
@@ -117,8 +117,8 @@ Status			Problem													Difficulty	Notes
 Backtracking
 Status			Problem													Difficulty	Notes
 ✓				Subsets													Medium		Focus on the length of each subset, this allows for a backtracking approach where different candidates are evaluated for length and popped for other data points after getting evaluated.
-✗				Combination Sum											Medium
-✗				Permutations											Medium
+✓				Combination Sum											Medium		Use a recursive backtracking DFS to produce combinations from each integer in the set of candidates. The base case should be the target sum. Think of it as a binary decision tree that expands as it iterates and backtracks.
+✗				Permutations											Medium		Use recursion to generate the permutations of a slice of the input array. Identify the first number to be witheld from the recursive call, remove it from the input, recurse, and add it back to the results and the input.
 ✗				Subsets II												Medium
 ✗				Combination Sum II										Medium
 ✗				Word Search												Medium
@@ -135,11 +135,11 @@ Status			Problem													Difficulty	Notes
 ✓				Max Area of Island										Medium		We can scan the input and trigger an iterative DFS (stacks) or BFS (queues) when an island is detected. As we we map the island, we can keep a count of the area to return it for evaluation.
 ✓				Pacific Atlantic Waterflow								Medium		Identifying border regions next each ocean allows us to only trigger either DFS or BFS on them to see which regions can underflow to each border region. We can maintain two matrices to evaluate for points that intersect.
 ✓				Surrounded Regions										Medium		Border regions are the only protected regions. Identifying these and triggering either DFS or BFS on each of them allows us to identify which are protected from being surrounded.
-✗				Rotting Oranges											Medium
+✓				Rotting Oranges											Medium		Identify the count of fresh oranges on the board and craft a BFS that originates from each of the rotting oranges, collecting new rotting oranges in a queue for the next wave after the current minute is exhausted.
 ✓				Walls and Gates											Medium		Identify the gate cells and queue them for a BFS. This will iterate through all gates and find the nearest neighbors. Ensure the walls and gates are not overwritten and that a BFS ceases when it cannot minimize a path to a gate.
-✗				Course Schedule											Medium
-✗				Course Schedule II										Medium
-✗				Redundant Connection									Medium
+✓				Course Schedule											Medium		Craft a class for each vertex that tacks its search state. Use a DFS to look for cycles within an adjacency list. They occur when a DFS detects a neighbor that has previously been marked as discovered in an ongoing search.
+✗				Course Schedule II										Medium		Craft a class for each vertex that tacks its search state. Use a DFS to discover neighbors and search for cycles. Use an linked list to track when vertices completed by the DFS. This should return a topological sort of a DAG.
+✗				Redundant Connection									Medium		Use the Union-Find algorithm to detect if two nodes share a parent before being connected and causing a cycle. Use arrays to track both parents and rank. The search should use path compression to expedite future searches.
 ✗				Number of Connected Components in Graph					Medium
 ✗				Graph Valid Tree										Medium
 ✗				Word Latter												Hard
@@ -161,7 +161,7 @@ Status			Problem													Difficulty
 Status			Problem													Difficulty	Notes
 ✓				Climbing Stairs											Easy		A variation on the fibonacci sequence, we can set the first two steps to predetermined values and calculate values for each preceding step. We can the previous two steps in the fashion of a sliding window at each iteration.
 ✓				Min Cost Climbing Stairs								Medium		Similar to climbing stairs but instead of tabulating steps, we are keeping a running cost of each step and looking for the minimal cost. We must track the previous two steps using a sliding window.
-✗				House Robber											Medium
+✗				House Robber											Medium		Examine the previous two indices
 ✗				House Robber II											Medium
 ✗				Longest Palindromic Substring							Medium
 ✗				Palindromic Substrings									Medium
@@ -178,7 +178,7 @@ Status			Problem													Difficulty	Notes
 Status			Problem													Difficulty	Notes
 ✓				Unique Paths											Medium		The limited graph traversal allows for a controlled distribution of the problem through memoization. We can use previously evaluated cells to identify the number of unique paths in the current cell.
 ✓				Longest Common Subsequence								Medium		We can define a two-dimensional matrix using the lengths of the inputs (and the empty string) to represent points where identical characters are located. Previously evaluated cells can be used to evaluate new ones. 
-✗				Best Time to Buy/Sell Stock With Cooldown				Medium		
+✗				Best Time to Buy/Sell Stock With Cooldown				Medium		Conceive of the problem with state machines. At every iteration, there are several possible state changes that need to be accounted for. The held/sold/cooldown states and how they transition from one another provide a solution.
 ✗				Coin Change II											Medium
 ✗				Target Sum												Medium
 ✗				Interleaving String										Medium
@@ -193,8 +193,8 @@ Status			Problem													Difficulty	Notes
 Greedy
 Status			Problem													Difficulty	Notes
 ✓				Maximum Subarray										Easy		Devise a method to evaluate the current subarray at every iteration to see if it is either worth supplmenting or needs replacing.
-✗				Jump Game												Medium
-✗				Jump Game II											Medium
+✗				Jump Game												Medium		Maintain a variable that holds the maximum jump possible and decrement it at the start of every step.
+✗				Jump Game II											Medium		Consider the array constraints and assess the farthes we can jump at each iteration in the array. When the current jump is exhausted, we want to replace it with this max value and see if we have reached our target.
 ✗				Gas Station												Medium
 ✗				Hand of Straights										Medium
 ✗				Merge Triplets to Form Target Triplet					Medium
@@ -233,6 +233,6 @@ Status			Problem													Difficulty	Notes
 ✗				Number of 1 Bits										Easy
 ✗				Counting Bits											Easy
 ✗				Reverse Bits											Easy
-✗				Missing Number											Easy		Initialize a bitmask to the length of the input array and use the formatted array input and indices over that input to isolate our target number.
+✓				Missing Number											Easy		Initialize a bitmask to the length of the input array and use the formatted array input and indices over that input to isolate our target number.
 ✗				Reverse Integer											Medium			
 ✗				Sum of Two Integers										Medium	

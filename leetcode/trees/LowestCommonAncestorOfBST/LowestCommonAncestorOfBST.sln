@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LowestCommonAncestorOfBST", "LowestCommonAncestorOfBST\LowestCommonAncestorOfBST.csproj", "{097E8919-2727-4986-965C-771CA90A3E9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{097E8919-2727-4986-965C-771CA90A3E9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{097E8919-2727-4986-965C-771CA90A3E9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{097E8919-2727-4986-965C-771CA90A3E9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{097E8919-2727-4986-965C-771CA90A3E9D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71BF2F1D-FC3B-459C-B47D-0C1E65AE1C4E}
+	EndGlobalSection
+EndGlobal
