@@ -2,7 +2,7 @@
 {
     public class Solution
     {
-        //O(n) time
+        //O(n * alpha(n)) time
         //O(n) space
         public int[] FindRedundantConnection(int[][] edges)
         {
@@ -24,14 +24,18 @@
 
         private int FindParent(int[] parents, int n)
         {
-            int parent = n;
-            while (parent != parents[parent])
+            int p = n;
+            while (p != parents[p])
+                p = parents[p];
+
+            while (n != parents[n])
             {
-                parents[parent] = parents[parents[parent]];
-                parent = parents[parent];
+                int temp = parents[n];
+                parents[n] = p;
+                n = parents[temp];
             }
 
-            return parent;
+            return p;
         }
 
         private bool Union(int[] parents, int[] ranks, int n1, int n2)
@@ -45,12 +49,12 @@
             if (ranks[p1] >= ranks[p2])
             {
                 parents[p2] = p1;
-                ranks[p1]++;
+                ranks[p1] += ranks[p2];
             }
             else
             {
                 parents[p1] = p2;
-                ranks[p2]++;
+                ranks[p2] += ranks[p1];
             }
 
             return true;

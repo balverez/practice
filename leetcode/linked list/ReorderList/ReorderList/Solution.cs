@@ -30,8 +30,8 @@
         //O(1) space
         private ListNode? Reverse(ListNode? head)
         {
+            ListNode? next;
             ListNode? previous = null;
-            ListNode? next = null;
             ListNode? iterator = head;
 
             while (iterator != null)

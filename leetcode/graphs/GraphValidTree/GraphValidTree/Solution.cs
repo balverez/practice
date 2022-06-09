@@ -51,10 +51,7 @@
         {
             int p = n;
             while (p != parents[p])
-            {
-                parents[p] = parents[parents[p]];
                 p = parents[p];
-            }
 
             while (n != p)
             {

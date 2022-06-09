@@ -4,6 +4,8 @@ namespace GenerateParenthesesCombinations
 {
     internal class Solution
     {
+        //O(2^n) time
+        //O(2^n) space
         public HashSet<string> GenerateParenthesis(int n)
         {
             HashSet<string> result = new();

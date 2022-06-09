@@ -13,7 +13,7 @@ namespace GoogleOTS
 
             for (int i = 0; i < input.Length; i++)
             {
-                map[input[i]] = map[input[i]] + 1;
+                map[input[i]]++;
 
                 if (map['A'] > x || map['B'] > y)
                 {
@@ -23,8 +23,7 @@ namespace GoogleOTS
                 }
                 else if (map['A'] == x && map['B'] == y)
                 {
-                    result = new() { i + 1 };
-                    break;
+                    return new() { i + 1 };
                 }
             }
 

@@ -11,12 +11,14 @@
             if (nums.Length == 2)
                 return Math.Max(nums[0], nums[1]);
 
-            nums[1] = Math.Max(nums[0], nums[1]);
             int robbed = 0;
-            for (int i = 2; i < nums.Length; i++)
+            int twoBack = 0;
+            int oneBack = nums[0];
+            for (int i = 1; i < nums.Length; i++)
             {
-                robbed = Math.Max(nums[i] + nums[i - 2], nums[i - 1]);
-                nums[i] = robbed;
+                robbed = Math.Max(oneBack, twoBack + nums[i]);
+                twoBack = oneBack;
+                oneBack = robbed;
             }
 
             return robbed;

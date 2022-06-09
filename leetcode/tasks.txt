@@ -61,8 +61,8 @@ Status			Problem													Difficulty	Notes
 Linked List
 Status			Problem													Difficulty	Notes
 ✓				Reverse Linked List										Easy		Maintain a sliding window of pointers as the list is reversed, with pointers to previous, next, and current nodes.
-✗				Merge Two Linked Lists									Easy		Approach the problem like merge sort and exhaust one of the lists by comparing the two lists' values and taking the minimum at each iteration. After one is exhausted, we can connect our iterator to the remaining list.
-✗				Reorder List											Medium		This requires finding the midpoint of the linked list, reversing the second half, and merging the two halves in the specified order.
+✓				Merge Two Linked Lists									Easy		Approach the problem like merge sort and exhaust one of the lists by comparing the two lists' values and taking the minimum at each iteration. After one is exhausted, we can connect our iterator to the remaining list.
+✓				Reorder List											Medium		This requires finding the midpoint of the linked list, reversing the second half, and merging the two halves in the specified order.
 ✗				Remove Nth Node from End of List						Medium
 ✗				Copy List with Random Pointer							Medium
 ✗				Add Two Numbers											Medium
@@ -118,7 +118,7 @@ Backtracking
 Status			Problem													Difficulty	Notes
 ✓				Subsets													Medium		Focus on the length of each subset, this allows for a backtracking approach where different candidates are evaluated for length and popped for other data points after getting evaluated.
 ✓				Combination Sum											Medium		Use a recursive backtracking DFS to produce combinations from each integer in the set of candidates. The base case should be the target sum. Think of it as a binary decision tree that expands as it iterates and backtracks.
-✗				Permutations											Medium		Use recursion to generate the permutations of a slice of the input array. Identify the first number to be witheld from the recursive call, remove it from the input, recurse, and add it back to the results and the input.
+✓				Permutations											Medium		Use recursion to generate the permutations of a slice of the input array. Identify the first number to be witheld from the recursive call, remove it from the input, recurse, and add it back to the results and the input.
 ✗				Subsets II												Medium
 ✗				Combination Sum II										Medium
 ✗				Word Search												Medium
@@ -140,8 +140,8 @@ Status			Problem													Difficulty	Notes
 ✓				Course Schedule											Medium		Craft a class for each vertex that tacks its search state. Use a DFS to look for cycles within an adjacency list. They occur when a DFS detects a neighbor that has previously been marked as discovered in an ongoing search.
 ✗				Course Schedule II										Medium		Craft a class for each vertex that tacks its search state. Use a DFS to discover neighbors and search for cycles. Use an linked list to track when vertices completed by the DFS. This should return a topological sort of a DAG.
 ✗				Redundant Connection									Medium		Use the Union-Find algorithm to detect if two nodes share a parent before being connected and causing a cycle. Use arrays to track both parents and rank. The search should use path compression to expedite future searches.
-✗				Number of Connected Components in Graph					Medium
-✗				Graph Valid Tree										Medium
+✗				Number of Connected Components in Graph					Medium		We can identify components by either using a HashSet to mark visited nodes in a DFS, or decrementing the amount components as edges are applied to the graph in a Union-Find approach.
+✗				Graph Valid Tree										Medium		Validate that there are n - 1 edges. Any other amount is grounds for invalidation. Use the Union-Find algorithm to validate new edges and ensure there are no cycles.
 ✗				Word Latter												Hard
 
 
@@ -159,10 +159,10 @@ Status			Problem													Difficulty
 
 1-D Dynamic Programming
 Status			Problem													Difficulty	Notes
-✓				Climbing Stairs											Easy		A variation on the fibonacci sequence, we can set the first two steps to predetermined values and calculate values for each preceding step. We can the previous two steps in the fashion of a sliding window at each iteration.
+✓				Climbing Stairs											Easy		A variation on the fibonacci sequence, we can set the first two steps to predetermined values and calculate values for each preceding step. We can use the previous two steps in the fashion of a sliding window at each iteration.
 ✓				Min Cost Climbing Stairs								Medium		Similar to climbing stairs but instead of tabulating steps, we are keeping a running cost of each step and looking for the minimal cost. We must track the previous two steps using a sliding window.
-✗				House Robber											Medium		Examine the previous two indices
-✗				House Robber II											Medium
+✓				House Robber											Medium		Examine the previous two indices at each iteration and update the max amount possible to rob. Afterwards, update the indices as you move the sliding window up.
+✓				House Robber II											Medium		Use the House Robber approach but modify it to function with input start and end variables. This way we can assess that maximum value from stealing from the first house or the last house.
 ✗				Longest Palindromic Substring							Medium
 ✗				Palindromic Substrings									Medium
 ✗				Decode Ways												Medium
@@ -178,7 +178,7 @@ Status			Problem													Difficulty	Notes
 Status			Problem													Difficulty	Notes
 ✓				Unique Paths											Medium		The limited graph traversal allows for a controlled distribution of the problem through memoization. We can use previously evaluated cells to identify the number of unique paths in the current cell.
 ✓				Longest Common Subsequence								Medium		We can define a two-dimensional matrix using the lengths of the inputs (and the empty string) to represent points where identical characters are located. Previously evaluated cells can be used to evaluate new ones. 
-✗				Best Time to Buy/Sell Stock With Cooldown				Medium		Conceive of the problem with state machines. At every iteration, there are several possible state changes that need to be accounted for. The held/sold/cooldown states and how they transition from one another provide a solution.
+✓				Best Time to Buy/Sell Stock With Cooldown				Medium		Conceive of the problem with state machines. At every iteration, there are several possible state changes that need to be accounted for. The held/sold/cooldown states and how they transition from one another provide a solution.
 ✗				Coin Change II											Medium
 ✗				Target Sum												Medium
 ✗				Interleaving String										Medium
@@ -192,9 +192,9 @@ Status			Problem													Difficulty	Notes
 
 Greedy
 Status			Problem													Difficulty	Notes
-✓				Maximum Subarray										Easy		Devise a method to evaluate the current subarray at every iteration to see if it is either worth supplmenting or needs replacing.
-✗				Jump Game												Medium		Maintain a variable that holds the maximum jump possible and decrement it at the start of every step.
-✗				Jump Game II											Medium		Consider the array constraints and assess the farthes we can jump at each iteration in the array. When the current jump is exhausted, we want to replace it with this max value and see if we have reached our target.
+✓				Maximum Subarray										Easy		Devise a method to evaluate the current subarray at every iteration to see if it is either worth supplmenting or needs resetting.
+✓				Jump Game												Medium		Maintain a variable that holds the maximum jump possible and decrement it at the start of every step.
+✓				Jump Game II											Medium		Consider the array constraints and assess the farthes we can jump at each iteration in the array. When the current jump is exhausted, we want to replace it with this max value and see if we have reached our target.
 ✗				Gas Station												Medium
 ✗				Hand of Straights										Medium
 ✗				Merge Triplets to Form Target Triplet					Medium
@@ -206,9 +206,9 @@ Status			Problem													Difficulty	Notes
 Intervals
 Status			Problem													Difficulty	Notes
 ✓				Insert Interval											Medium		Create a result list where intervals are iteratively combined from the input list and one variable insert interval. Two intervals can either be sequential one after the other or overlapping.
-✗				Merge Intervals											Medium		
-✗				Non-Overlapping Intervals								Medium
-✗				Meeting Rooms											Easy
+✓				Merge Intervals											Medium		Sort the input intervals by start and begin assembling the output by assessing each interval against an insert interval. Once an insert interval is put into the output, update it. Add the last insert at the end of the loop.
+✗				Non-Overlapping Intervals								Medium		
+✓				Meeting Rooms											Easy		Sort the input array with a custom comparer that sorts by the start time of each interval array. After the input is sorted, loop through and and ensure that the previous interval does not interfere with the current one.
 ✗				Meeting Rooms II										Medium
 ✗				Minimum Interval to Include Each Query					Hard
 
@@ -217,10 +217,10 @@ Status			Problem													Difficulty	Notes
 Math and Geometry
 Status			Problem													Difficulty	Notes
 ✓				Rotate Image											Medium		A clockwise rotation requires a vertical reflection over a transposed matrix. A counterclockwise rotation requires a horizontal reflection over a transposed matrix. In-place modification calls for careful indexing.
-✓				Spiral Matrix											Medium		A method of controlling the direction of the iterations and defining the boundaries of the matrix and our search is key.
-✗				Set Matrix Zeroes										Medium
-✗				Happy Number											Easy
-✗				Plus One												Easy
+✓				Spiral Matrix											Medium		A method of controlling the direction of the iterations and defining the boundaries of the matrix in our search is key.
+✓				Set Matrix Zeroes										Medium		Use a flag system to mark columns and rows for zeroing out. Check for zeros in the flag row and column first to see if they will need to be handled at the end. Iterate through the rest of the sub-matrix and set flags as needed.
+✓				Happy Number											Easy		Decompose the input number into digits for a sum and use that as the next number in the search for a happy number. A hash set can be used to track seen numbers, or a cycle detecting algorithm involving slow and fast iterators.
+✓				Plus One												Easy		Traverse the list right-to-left. If a nine is detected, zero out the entry and proceed in the loop, else increment the entry and return. Account for all 9s outside of the loop by allocating a new n+1 array and heading it with 1.
 ✗				Pow(x, n)												Medium
 ✗				Multiply Strings										Medium
 ✗				Detect Squares											Medium
@@ -230,9 +230,9 @@ Status			Problem													Difficulty	Notes
 Bit Manipulation
 Status			Problem													Difficulty	Notes
 ✓				Single Number											Easy		Craft a bitmask and use the xor operator to identify the single number.
-✗				Number of 1 Bits										Easy
-✗				Counting Bits											Easy
-✗				Reverse Bits											Easy
+✓				Number of 1 Bits										Easy		Use the bitwise & operator to slowly decompose n against (n-1). This removes the least significant bit at each iteration, allowing us to count the number of 1 bits in a given bit string.
+✓				Counting Bits											Easy		Use an offset to calculate the number of set bits that are less significant than the most significant bit in the current number. Update this offset at every power of 2.
+✓				Reverse Bits											Easy		Use the bitwise AND operator and bit shifting to reverse the bits. Shift 16 bits in opposite directions, then use hexadecimal to switch places in 8, 4, 2, and 1 bit increments.
 ✓				Missing Number											Easy		Initialize a bitmask to the length of the input array and use the formatted array input and indices over that input to isolate our target number.
+✗				Sum of Two Integers										Medium
 ✗				Reverse Integer											Medium			
-✗				Sum of Two Integers										Medium	
