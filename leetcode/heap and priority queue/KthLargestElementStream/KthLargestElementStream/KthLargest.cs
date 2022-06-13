@@ -13,10 +13,11 @@
             _maxHeap = new();
 
             foreach (int i in nums)
+            {
                 _maxHeap.Enqueue(i, i);
-
-            while (_maxHeap.Count > _k)
-                _maxHeap.Dequeue();
+                if (_maxHeap.Count > _k)
+                    _maxHeap.Dequeue();
+            }
         }
 
         //O(logk) time
@@ -25,7 +26,7 @@
         {
             _maxHeap.Enqueue(val, val);
 
-            while (_maxHeap.Count > _k)
+            if (_maxHeap.Count > _k)
                 _maxHeap.Dequeue();
 
             return _maxHeap.Peek();

@@ -9,12 +9,12 @@ namespace Subsets
             {
                 new List<int>() {  },
                 new List<int>() { 1 },
-                new List<int>() { 2 },
-                new List<int>() { 3 },
                 new List<int>() { 1, 2 },
+                new List<int>() { 1, 2, 3 },
                 new List<int>() { 1, 3 },
+                new List<int>() { 2 },
                 new List<int>() { 2, 3 },
-                new List<int>() { 1, 2, 3 }
+                new List<int>() { 3 }
             };
 
             int[] test = { 1, 2, 3 };

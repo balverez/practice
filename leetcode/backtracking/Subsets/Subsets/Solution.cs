@@ -6,26 +6,20 @@
         //O(n) space
         public IList<IList<int>> Subsets(int[] nums)
         {
-            List<IList<int>> subsets = new();
-
-            for (int k = 0; k <= nums.Length; k++)
-                Backtrack(0, k, nums, new(), subsets);
+            IList<IList<int>> subsets = new List<IList<int>>();
+            Backtrack(subsets, nums, new(), 0);
 
             return subsets;
         }
 
-        private void Backtrack(int start, int k, int[] nums, List<int> current, List<IList<int>> subsets)
+        private void Backtrack(IList<IList<int>> subsets, int[] nums, List<int> current, int start)
         {
-            if (current.Count >= k)
-            {
-                subsets.Add(new List<int>(current));
-                return;
-            }
+            subsets.Add(new List<int>(current));
 
             for (int i = start; i < nums.Length; i++)
             {
                 current.Add(nums[i]);
-                Backtrack(i + 1, k, nums, current, subsets);
+                Backtrack(subsets, nums, current, i + 1);
                 current.RemoveAt(current.Count - 1);
             }
         }
