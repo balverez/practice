@@ -4,8 +4,8 @@ Status			Problem													Difficulty	Notes
 ✓				Valid Anagram											Easy		Create a dictionary for each character in the input. Each character mapping should be incremented on every instance in the first string and decremented in the second string. Reject if any mappings in the dictionary are non-zero.
 ✓				Two Sum													Easy		Create a dictionary that maps the value of an array element to an index. At each iteration, calculate the difference needed to find the target and query the hash table. If the difference is present, return the indices.
 ✓				Group Anagrams											Medium		Decompose each string into a serialized count of all lower-case characters in the alphabet. Anagrams will have matching serializations. Map these in a dictionary to a list of strings for return later.
-✗				Top K Frequent Elements									Medium
-✗				Product of Array Except Self							Medium
+✓				Top K Frequent Elements									Medium		Use a dictionary to map number instances. Using these counts, we can set up a bucket sort using the size of the input and tallied instances. Processing the resulting list array in reverse gives us our answer.
+✓				Product of Array Except Self							Medium		Calculate the prefix sum into an output array by starting with 1 and updating it at every iteration by multiplying it with nums[i]. Do the same with the postfix on a second pass from right to left to calculate the output.
 ✗				Valid Sudoku											Medium
 ✗				Encode and Decode Strings								Medium
 ✗				Longest Consecutive Subsequence							Medium
@@ -27,7 +27,7 @@ Status			Problem													Difficulty	Notes
 ✓				Best Time to Buy & Sell Stock							Easy		Track the input minimum in previous entries of the array and compare against the current entry to see evaluate if it is profit maximum. Comparisons can't begin until the second element of the input.
 ✓				Longest Substring Without Repeating Characters			Medium		Track the start of the sliding window and account for its length in a 0-index scheme. Use a dictionary to store character indices and move the sliding window if a repeat is detected in the window to pass that duplicate.
 ✓				Longest Repeating Character Replacement					Medium		Use a window and a dictionary to track character counts and length. Assess the length of the window minus the max character count to determine if the number of K replacements has been exhausted and the window need shifting.
-✗				Permutation in String									Medium
+✓				Permutation in String									Medium		Use two arrays to track the character counts of the lowercase alphabet. Compare the matches over the intial strings and iterate over the remainder to see if a permutation is found in the string.
 ✗				Minimum Window Substring								Hard
 ✗				Sliding Window Maximum									Hard
 
@@ -38,8 +38,8 @@ Status			Problem													Difficulty	Notes
 ✓				Valid Parentheses										Easy		Use a stack to push closed parantheses when open ones are detected in the input. When a closed parentheses is detected, ensure the stack is both non-empty and pops an identical character. Ensure the stack is empty at the end.
 ✓				Min Stack												Easy		Use a list to store a tuple holding a value and a minimum up to that point. Track a global minimum and evaluate on both pushes and pops.
 ✓				Evaluate Reverse Polish Notation						Medium		Use a stack to structure a recursion tree. Use a dictionary to map operators to Func lambdas. Be mindful of the ordering of the integers in this notation, as order matters in division and subtraction.
-✗				Generate Parentheses									Medium
-✗				Daily Temperatures										Medium
+✓				Generate Parentheses									Medium		Use the number of open parenthesis to determine how many closed ones are needed for a valid set. Use backtracking to generate the sets with the number of remaining closed parenthesis as the base case.
+✓				Daily Temperatures										Medium		Use a monotonic stack to store indices in the array as you iterate through the input. If you encounter a temperature hotter than what's on the top of the stack, iterate through the stack and update the output.
 ✗				Car Fleet												Medium
 ✗				Largest Rectangle in Histogram							Hard
 
@@ -50,9 +50,8 @@ Status			Problem													Difficulty	Notes
 ✓				Binary Search											Easy		Make left and right pointers into the array and continuously update them on a pivot.
 ✓				Search a 2D Matrix										Medium		Treat the 2D matrix as a virtual 1D array since it is sorted. A pivot can be pinpointed by halving the number of elements. The pivot row can be determined by dividing by n and the pivot column can be ascertained by modding by n.
 ✓				Koko Eating Bananas										Medium		Use binary search to iterate through candidates for k. k should meet the h requirement as close as it can. Controlling our range of iterations via binary search allows for an efficient solution.
-✗				Search Rotated Sorted Array								Medium
-✗				Find Minimum in Rotated Sorted Array					Medium
-✗				Product of Array Except Self							Medium
+✓				Search Rotated Sorted Array								Medium		Split the rotated input with binary search and set up conditions to isolate the needed subarray where the target could potentially be using a pivot. These conditionals should catch rotations based on comparisons to the pivot.
+✓				Find Minimum in Rotated Sorted Array					Medium		A rotation can be isolated as the point where consecutive elements are decreasing. The left pointer should be less than the right pointer at the start of the search if there is no rotation, allowing us to short-circuit.
 ✗				Time Based Key-Value Store								Medium
 ✗				Find Median of Two Sorted Arrays						Hard
 
@@ -65,8 +64,8 @@ Status			Problem													Difficulty	Notes
 ✓				Reorder List											Medium		This requires finding the midpoint of the linked list, reversing the second half, and merging the two halves in the specified order.
 ✓				Remove Nth Node from End of List						Medium		Use two pointers to create a buffer of n-size between them. Iterate the leading pointer n + 1 times ahead and then iterate with pointers in sync. Once the first pointer is null, delete. A sentinel can return the new head.
 ✓				Copy List with Random Pointer							Medium		Interleave the given list with copies of nodes. Use the combined list to calibrate the random pointers to the correct nodes. Separate the lists afterwards with two iterators and keep track of the new head of the copy.
-✗				Add Two Numbers											Medium
-✗				Linked List Cycle										Easy
+✓				Add Two Numbers											Medium		Create a sentry to track the new list. Use a running sum to detect instances where we need to carry over to the higher order. Iteratively create new list elements until both input lists are exhausted.
+✓				Linked List Cycle										Easy		Use the value range as an offset to edit the input list and detect if an element has been seen before.
 ✗				Find the Duplicate Number								Medium
 ✗				LRU Cache												Medium
 ✗				Merge K Sorted Lists									Hard
@@ -84,8 +83,8 @@ Status			Problem													Difficulty	Notes
 ✓				Subtree of Another Tree									Easy		You can iterate through the root until a node with the equivalent value to the subroot is found and trigger a call to see if the subtrees match. Evaluating matching trees can be done recursively and iteratively.
 ✓				Lowest Common Ancestor of a BST							Easy		Use the properties of a BST for an efficient search of the targets. If each target is on a different subtree, we have found the lowest common ancestor. The search can be done either iteratively or recursively.
 ✓				Binary Tree Level Order Traversal						Medium		Use two queues for a BFS over the tree that gives a level order traversal. Track the current level in its own queue and collect children in the other. Reset both queues and collect the output once the current level is exhausted.
-✗				Binary Tree Right Side View								Medium
-✗				Count Good Nodes in a Binary Tree						Medium
+✓				Binary Tree Right Side View								Medium		We need to collect the right-most element at every level. Using a BFS, we can first collect left nodes into the next level. When the next level is exhausted, we know that the last level pulled from the queue is the right-most.
+✓				Count Good Nodes in a Binary Tree						Medium		We can push a tuple onto a queue holding that path's max. If a higher max is eventually encountered on the path, the max can be updated for future nodes in that same path.
 ✗				Validate Binary Search Tree								Medium
 ✗				Kth Smallest Element in a BST							Medium
 ✗				Construct Tree from Preorder and Inorder Traversal		Medium
@@ -97,7 +96,7 @@ Status			Problem													Difficulty	Notes
 Tries
 Status			Problem													Difficulty	Notes
 ✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a subclass that returns a TrieNode for custom evaluation.
-✗				Design Add and Search Word Data Structure				Medium
+✓				Design Add and Search Word Data Structure				Medium		Implement the search method with a helper that can be passed a trie node. This allows wildcard characters to execute searches for substrings with child nodes for every key at the current node.
 ✗				Word Search II											Hard
 
 
@@ -108,7 +107,7 @@ Status			Problem													Difficulty	Notes
 ✓				Last Stone Weight										Easy		We can use a priority queue with a custom comparator that turns its sorting implementation into a max heap. The first stone retrieved from the heap will be the largest.
 ✓				K Closest Points to Origin								Medium		We need to use a min heap priority that utilizes a double as a key. We can store the index of the evaluated point and its calculated distance from the origin into the heap and pull the needed elements for a result.
 ✓				Kth Largest Element in an Array							Medium		Use a priority queue to collect the array elements. Ensue that it remains at size k so that the kth largest element can be retrieved in constant time.
-✗				Task Scheduler											Medium
+✓				Task Scheduler											Medium		Use a max heap to track the largest tasks and a queue to track processes on cooldown with a tuple holding the id and the cooldown time. Evaluate the cooldown queue at every iteration and admit tasks into the heap when ready.
 ✗				Design Twitter											Medium
 ✗				Find Median from Data Stream							Hard
 
@@ -120,7 +119,7 @@ Status			Problem													Difficulty	Notes
 ✓				Combination Sum											Medium		Use a recursive backtracking DFS to produce combinations from each integer in the set of candidates. The base case should be the target sum. Think of it as a binary decision tree that expands as it iterates and backtracks.
 ✓				Permutations											Medium		Use recursion to generate the permutations of a slice of the input array. Identify the first number to be witheld from the recursive call, remove it from the input, recurse, and add it back to the results and the input.
 ✓				Subsets II												Medium		Sort the input array and use backtracking to enumerate the subsets. Skip iterations when the start index does not match i in the loop and the ith element is equivalent to the preceding element.
-✗				Combination Sum II										Medium
+✓				Combination Sum II										Medium		We can sort the input and use controlled backtracking where we skip duplicates in the input. Our base case should be the sum against the target. After an element is examined, we skip any duplicates. Short-circuit large searches.
 ✗				Word Search												Medium
 ✗				Palindrome Partitioning									Medium
 ✗				Letter Combinations of a Phone Number					Medium
@@ -138,11 +137,11 @@ Status			Problem													Difficulty	Notes
 ✓				Rotting Oranges											Medium		Identify the count of fresh oranges on the board and craft a BFS that originates from each of the rotting oranges, collecting new rotting oranges in a queue for the next wave after the current minute is exhausted.
 ✓				Walls and Gates											Medium		Identify the gate cells and queue them for a BFS. This will iterate through all gates and find the nearest neighbors. Ensure the walls and gates are not overwritten and that a BFS ceases when it cannot minimize a path to a gate.
 ✓				Course Schedule											Medium		Craft a class for each vertex that tacks its search state. Use a DFS to look for cycles within an adjacency list. They occur when a DFS detects a neighbor that has previously been marked as discovered in an ongoing search.
-✗				Course Schedule II										Medium		Craft a class for each vertex that tacks its search state. Use a DFS to discover neighbors and search for cycles. Use an linked list to track when vertices completed by the DFS. This should return a topological sort of a DAG.
-✗				Redundant Connection									Medium		Use the Union-Find algorithm to detect if two nodes share a parent before being connected and causing a cycle. Use arrays to track both parents and rank. The search should use path compression to expedite future searches.
-✗				Number of Connected Components in Graph					Medium		We can identify components by either using a HashSet to mark visited nodes in a DFS, or decrementing the amount components as edges are applied to the graph in a Union-Find approach.
-✗				Graph Valid Tree										Medium		Validate that there are n - 1 edges. Any other amount is grounds for invalidation. Use the Union-Find algorithm to validate new edges and ensure there are no cycles.
-✗				Word Latter												Hard
+✓				Course Schedule II										Medium		Craft a class for each vertex that tacks its search state. Use a DFS to discover neighbors and search for cycles. Use an linked list to track when vertices completed by the DFS. This should return a topological sort of a DAG.
+✓				Redundant Connection									Medium		Use the Union-Find algorithm to detect if two nodes share a parent before being connected and causing a cycle. Use arrays to track both parents and rank. The search should use path compression to expedite future searches.
+✓				Number of Connected Components in Graph					Medium		We can identify components by either using a HashSet to mark visited nodes in a DFS, or decrementing the amount components as edges are applied to the graph in a Union-Find approach.
+✓				Graph Valid Tree										Medium		Validate that there are n - 1 edges. Any other amount is grounds for invalidation. Use the Union-Find algorithm to validate new edges and ensure there are no cycles.
+✓				Word Latter												Hard		Preprocess the collection of strings in the word list to map them to generic transformations. Use the starting word as a graph node and a key to execute a BFS in search of valid transformations that get closer to the end word.
 
 
 
@@ -163,10 +162,10 @@ Status			Problem													Difficulty	Notes
 ✓				Min Cost Climbing Stairs								Medium		Similar to climbing stairs but instead of tabulating steps, we are keeping a running cost of each step and looking for the minimal cost. We must track the previous two steps using a sliding window.
 ✓				House Robber											Medium		Examine the previous two indices at each iteration and update the max amount possible to rob. Afterwards, update the indices as you move the sliding window up.
 ✓				House Robber II											Medium		Use the House Robber approach but modify it to function with input start and end variables. This way we can assess that maximum value from stealing from the first house or the last house.
-✗				Longest Palindromic Substring							Medium
-✗				Palindromic Substrings									Medium
-✗				Decode Ways												Medium
-✗				Coin Change												Medium
+✓				Longest Palindromic Substring							Medium		Iterate through the string and perform a BFS outwards for both even- and odd-length palindromes. Use left and right pointers to determine length and substring indices.
+✓				Palindromic Substrings									Medium		Use a BFS-type search at every element for both even- and odd-length strings. If a palindrome is detected, increment the counter. Use the fact that a single character is a valid palindrome to orient the search.
+✓				Decode Ways												Medium		Starting from i = 1, check if the char can create a valid one-digit number. If so, track the number of ways one step back with the current pointer. Add the ways from two steps back if it can create a two-digit number.
+✓				Coin Change												Medium		Build out a memo table in a bottom-up manner from 1 to the target amount. Only use coins less than or equal to the iteration, starting from 1. If the amount in the memo table is still default, than the target can't be achieved.
 ✗				Maximum Product Subarray								Medium
 ✗				Word Break												Medium
 ✗				Longest Increasing Subsequence							Medium
@@ -195,8 +194,8 @@ Status			Problem													Difficulty	Notes
 ✓				Maximum Subarray										Easy		Devise a method to evaluate the current subarray at every iteration to see if it is either worth supplmenting or needs resetting.
 ✓				Jump Game												Medium		Maintain a variable that holds the maximum jump possible and decrement it at the start of every step.
 ✓				Jump Game II											Medium		Consider the array constraints and assess the farthes we can jump at each iteration in the array. When the current jump is exhausted, we want to replace it with this max value and see if we have reached our target.
-✗				Gas Station												Medium
-✗				Hand of Straights										Medium
+✓				Gas Station												Medium		Think about the circuit. There needs to be enough gas to at least cover the costs. You can use a running sum over the array to tally the costs and a current counter that can be reset to 0 if negative along with the starting i.
+✓				Hand of Straights										Medium		You can use a hash map and a min heap to sort the input and validate sequences. Ensure that the input can be split into the desired groups and the use the consecutive sequencing to consume the map and the heap.
 ✗				Merge Triplets to Form Target Triplet					Medium
 ✗				Partition Labels										Medium
 ✗				Valid Parenthesis String								Medium
@@ -207,7 +206,7 @@ Intervals
 Status			Problem													Difficulty	Notes
 ✓				Insert Interval											Medium		Create a result list where intervals are iteratively combined from the input list and one variable insert interval. Two intervals can either be sequential one after the other or overlapping.
 ✓				Merge Intervals											Medium		Sort the input intervals by start and begin assembling the output by assessing each interval against an insert interval. Once an insert interval is put into the output, update it. Add the last insert at the end of the loop.
-✗				Non-Overlapping Intervals								Medium		
+✓				Non-Overlapping Intervals								Medium		Sort the input array and consolidate the sorted intervals. Increment a counter whenever two overlapping intervals are merged.
 ✓				Meeting Rooms											Easy		Sort the input array with a custom comparer that sorts by the start time of each interval array. After the input is sorted, loop through and and ensure that the previous interval does not interfere with the current one.
 ✗				Meeting Rooms II										Medium
 ✗				Minimum Interval to Include Each Query					Hard

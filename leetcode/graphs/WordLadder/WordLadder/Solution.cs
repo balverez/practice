@@ -2,63 +2,63 @@
 {
     public class Solution
     {
+        //O(n * k^2) time, where k is the length of the strings
+        //O(n * k^2) space
         public int LadderLength(string beginWord, string endWord, IList<string> wordList)
         {
-            Dictionary<int, List<string>> diffMap = new();
-            bool endWordPresent = MapDifferences(endWord, diffMap, wordList);
-
-            if (!endWordPresent)
+            if (!wordList.Any(s => s.Equals(endWord)))
                 return 0;
 
-            int diff = Difference(beginWord, endWord);
-
-            List<string> ladder = new() { beginWord };
-            string iterator = beginWord;
-            while (diff > 0)
-            {
-                foreach (string word in diffMap[diff - 1])
-                    if (Difference(word, iterator) == 1)
-                    {
-                        ladder.Add(word);
-                        diff--;
-                        continue;
-                    }
-
-                foreach (string word in)
-            }
-        }
-
-        //O(n * k) time
-        //O(n) space
-        private static bool MapDifferences(string endWord, Dictionary<int, List<string>> diffMap, IList<string> wordList)
-        {
-            bool endWordPresent = false;
+            int length = beginWord.Length;
+            Dictionary<string, List<string>> transformations = new();
             foreach (string word in wordList)
             {
-                if (word.Equals(endWord))
-                    endWordPresent = true;
-
-                int differences = Difference(word, endWord);
-
-                if (!diffMap.ContainsKey(differences))
-                    diffMap[differences] = new();
-
-                diffMap[differences].Add(word);
+                for (int i = 0; i < length; i++)
+                {
+                    string key = word[..i] + '*' + word[(i + 1)..];
+                    transformations[key] = transformations.GetValueOrDefault(key, new());
+                    transformations[key].Add(word);
+                }
             }
 
-            return endWordPresent;
-        }
+            Queue<string> ladderSteps = new();
+            ladderSteps.Enqueue(beginWord);
+            Queue<string> newSteps = new();
+            HashSet<string> visited = new();
+            int numWords = 1;
+            while (ladderSteps.Count > 0)
+            {
+                string step = ladderSteps.Dequeue();
 
-        //O(k) time
-        //O(1) space
-        private static int Difference(string s1, string s2)
-        {
-            int diff = 0;
-            for (int i = 0; i < s2.Length; i++)
-                if (!s2[i].Equals(s1[i]))
-                    diff++;
+                for (int i = 0; i < length; i++)
+                {
+                    string key = step[..i] + '*' + step[(i + 1)..];
+                    if (transformations.ContainsKey(key))
+                    {
+                        foreach (string word in transformations[key])
+                        {
+                            if (!visited.Contains(word))
+                            {
+                                if (word.Equals(endWord))
+                                    return ++numWords;
 
-            return diff;
+                                visited.Add(word);
+                                newSteps.Enqueue(word);
+                            }
+                            
+                        }
+                    }
+                }
+
+                if (ladderSteps.Count == 0 && newSteps.Count > 0)
+                {
+                    numWords++;
+                    ladderSteps = new(newSteps);
+                    newSteps = new();
+                }
+            }
+
+            return 0;
         }
     }
 }
