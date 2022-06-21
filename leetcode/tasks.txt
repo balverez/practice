@@ -120,7 +120,7 @@ Status			Problem													Difficulty	Notes
 ✓				Permutations											Medium		Use recursion to generate the permutations of a slice of the input array. Identify the first number to be witheld from the recursive call, remove it from the input, recurse, and add it back to the results and the input.
 ✓				Subsets II												Medium		Sort the input array and use backtracking to enumerate the subsets. Skip iterations when the start index does not match i in the loop and the ith element is equivalent to the preceding element.
 ✓				Combination Sum II										Medium		We can sort the input and use controlled backtracking where we skip duplicates in the input. Our base case should be the sum against the target. After an element is examined, we skip any duplicates. Short-circuit large searches.
-✗				Word Search												Medium
+✓				Word Search												Medium		Use backtracking to execute a search when a trigger is encountered on the grid. Mark the visited cell and expand a BFS to search for the next character in the key. Track the key index and prevent exceeding the boundaries.
 ✗				Palindrome Partitioning									Medium
 ✗				Letter Combinations of a Phone Number					Medium
 ✗				N-Queens												Hard
@@ -147,8 +147,8 @@ Status			Problem													Difficulty	Notes
 
 Advanced Graphs
 Status			Problem													Difficulty
-✗				Reconstruct Itinerary									Hard
-✗				Min Cost to Connect all Points							Medium
+✓				Reconstruct Itinerary									Hard		We can construct an adjacency list from the lexically sorted input and perform a backtracking DFS to search for the path starting from JFK. Remove edges as the tree is traversed in the DFS and add them back when backtracking.
+✓				Min Cost to Connect all Points							Medium		We can perform Prim's MST on the input. Since vertices map to the input array directly, we can just track visited nodes in a bool array. Calculate the minimum distance for each unvisited vertex in a minheap.
 ✗				Network Delay Time										Medium
 ✗				Swim in Rising Water									Hard
 ✗				Alien Dictionary										Hard
@@ -166,8 +166,8 @@ Status			Problem													Difficulty	Notes
 ✓				Palindromic Substrings									Medium		Use a BFS-type search at every element for both even- and odd-length strings. If a palindrome is detected, increment the counter. Use the fact that a single character is a valid palindrome to orient the search.
 ✓				Decode Ways												Medium		Starting from i = 1, check if the char can create a valid one-digit number. If so, track the number of ways one step back with the current pointer. Add the ways from two steps back if it can create a two-digit number.
 ✓				Coin Change												Medium		Build out a memo table in a bottom-up manner from 1 to the target amount. Only use coins less than or equal to the iteration, starting from 1. If the amount in the memo table is still default, than the target can't be achieved.
-✗				Maximum Product Subarray								Medium
-✗				Word Break												Medium
+✓				Maximum Product Subarray								Medium		Track both current minimums and maximums while iterating through the input to handle negatives and positives. Check if either should be reset at every iteration and assess whether it will grow or decrease past either tracker.
+✗				Word Break												Medium		
 ✗				Longest Increasing Subsequence							Medium
 ✗				Partition Equal Subset Sum								Medium
 
