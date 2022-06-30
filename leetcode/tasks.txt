@@ -150,7 +150,7 @@ Status			Problem													Difficulty
 ✓				Reconstruct Itinerary									Hard		We can construct an adjacency list from the lexically sorted input and perform a backtracking DFS to search for the path starting from JFK. Remove edges as the tree is traversed in the DFS and add them back when backtracking.
 ✓				Min Cost to Connect all Points							Medium		We can perform Prim's MST on the input. Since vertices map to the input array directly, we can just track visited nodes in a bool array. Calculate the minimum distance for each unvisited vertex in a minheap.
 ✓				Network Delay Time										Medium		Use Dijkstra's algorithm to find the largest shortest path to each of the nodes. When exhausting the minheap, check if the node has been completed and whether it has edges. Check edges to see if their distance can be relaxed.
-✗				Swim in Rising Water									Hard
+✓				Swim in Rising Water									Hard		Imagine the grid as a graph, whose edges are adjacent cells and edge weights are cell values. We can use Dijkstra on this graph given the value constraints. Track the largest edge weight for return.
 ✗				Alien Dictionary										Hard
 ✗				Cheapest Flights Within K Stops							Medium
 
@@ -168,8 +168,8 @@ Status			Problem													Difficulty	Notes
 ✓				Coin Change												Medium		Build out a memo table in a bottom-up manner from 1 to the target amount. Only use coins less than or equal to the iteration, starting from 1. If the amount in the memo table is still default, than the target can't be achieved.
 ✓				Maximum Product Subarray								Medium		Track both current minimums and maximums while iterating through the input to handle negatives and positives. Check if either should be reset at every iteration and assess whether it will grow or decrease past either tracker.
 ✓				Word Break												Medium		Use a memo to track where valid substrings are detected. Use the empty string as the base case and add to the memo if the first index of a substring is already marked as valid. A valid string would be marked on the last element.
-✗				Longest Increasing Subsequence							Medium
-✗				Partition Equal Subset Sum								Medium
+✓				Longest Increasing Subsequence							Medium		Use a sorted list to track the increasing subsequence. Only add to it if an element is greater than the last item on the list. If an element is equal or smaller, look for the index to replace in the list using binary search.
+✓				Partition Equal Subset Sum								Medium		Model a DFS with a memo. Calculate the total sum over the array and halve it for the target base case of the DFS. Use a memo to cache results from the recursion tree.
 
 
 
@@ -182,8 +182,8 @@ Status			Problem													Difficulty	Notes
 ✓				Target Sum												Medium		Capture the recursion tree in an array bounded by the sums possible, using the sum as an offset. Use the first element as the base cases. Iterating over the input, simulate the tree expanding in a helper array.
 ✓				Interleaving String										Medium		Use recursion to create a tree that slowly consumes the input strings. Use caching to save repeated paths down the recursion tree stack using the indices of the recursive call.
 ✓				Longest Increasing Path in a Matrix						Hard		Using a DFS, we can iterate through entries in the matrix and cache results as entries are explored. Unexplored entries can then use these cached results to efficiently calculate the extent of their reach.
-✗				Distinct Subsequences									Hard
-✗				Edit Distance											Hard
+✓				Distinct Subsequences									Hard		Use the empty string as a base case. Retrieve the result of s-1, t for s, t. As matching characters are found, use the result of the previous subproblem to complement the current subproblem's result. 
+✓				Edit Distance											Hard		Use the empty string as a base case to build intuition. The number of edits to change a string to the empty string is equal to the length of the string. Model the three edits on the grid, and take the minimum when chars match. 
 ✗				Burst Balloons											Hard
 ✗				Regular Expression Matching								Hard
 
@@ -197,7 +197,7 @@ Status			Problem													Difficulty	Notes
 ✓				Gas Station												Medium		Think about the circuit. There needs to be enough gas to at least cover the costs. You can use a running sum over the array to tally the costs and a current counter that can be reset to 0 if negative along with the starting i.
 ✓				Hand of Straights										Medium		You can use a hash map and a min heap to sort the input and validate sequences. Ensure that the input can be split into the desired groups and the use the consecutive sequencing to consume the map and the heap.
 ✓				Merge Triplets to Form Target Triplet					Medium		Check each triplet entry and assess whether they any entry exceeds our target bounds. If the triplet passes this check, see if any of the entries match any of our targets.
-✗				Partition Labels										Medium
+✓				Partition Labels										Medium		Use a dictionary to track the number of character instances. Then use a hash set to track the unique characters in the current window. Reset the window when all unique characters are zero and add the length to the result.
 ✗				Valid Parenthesis String								Medium
 
 
