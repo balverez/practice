@@ -8,7 +8,7 @@ Status			Problem													Difficulty	Notes
 ✓				Product of Array Except Self							Medium		Calculate the prefix sum into an output array by starting with 1 and updating it at every iteration by multiplying it with nums[i]. Do the same with the postfix on a second pass from right to left to calculate the output.
 ✓				Valid Sudoku											Medium		Use bitmask arrays to track the state of rows, columns, and subgroups. Subgroups will require special indexing to isolate the 9 sub-grids. Set bits in mask by using OR against a bit shift controlled by the board element.
 ✓				Encode and Decode Strings								Medium		Use the constraints of the problem to formulate a packet-like approach where the length of the input string is embedded as a char in a prefix to the encoded string. Decode with this prefix in mind and account for the prefix.
-✗				Longest Consecutive Subsequence							Medium
+✓				Longest Consecutive Subsequence							Medium		Use a set to collect all instances. Loop through the set and tally sequences starting from numbers that don't contain preceding numbers in the set, since they represent the start of a sequence.
 
 
 
@@ -18,18 +18,18 @@ Status			Problem													Difficulty	Notes
 ✓				Two Sum II												Medium		Iterate through the input with left and right pointers, incrementing the left or decrementing the right depending on the difference between the elements and the target.
 ✓				3Sum													Medium		Set up a helper method that will calculate Two Sum for target 0. Iterate through the input and execute two sum at elements <= 0. After finding a triplet, increment the left pointer until it reaches a new element to avoid dups.
 ✓				Container with Most Water								Medium		Use two pointers to create the largest container and compress the container by shifting the smallest of the the two heights. at each iteration until the pointers are in the same array element.
-✗				Trapping Rain Water										Hard
+✓				Trapping Rain Water										Hard		Use two pointers to set up boundaries. Accumulate rain if pointer heights are lower than the established boundaries. Only update the boundaries when both pointers are greater than the current maximum. Move the shortest pointer.
 
 
 
 Sliding Window
 Status			Problem													Difficulty	Notes
-✓				Best Time to Buy & Sell Stock							Easy		Track the input minimum in previous entries of the array and compare against the current entry to see evaluate if it is profit maximum. Comparisons can't begin until the second element of the input.
+✓				Best Time to Buy & Sell Stock							Easy		Track the input minimum in previous entries of the array and compare against the current entry to evaluate if it is the profit maximum. Comparisons can't begin until the second element of the input.
 ✓				Longest Substring Without Repeating Characters			Medium		Track the start of the sliding window and account for its length in a 0-index scheme. Use a dictionary to store character indices and move the sliding window if a repeat is detected in the window to pass that duplicate.
 ✓				Longest Repeating Character Replacement					Medium		Use a window and a dictionary to track character counts and length. Assess the length of the window minus the max character count to determine if the number of K replacements has been exhausted and the window need shifting.
 ✓				Permutation in String									Medium		Use two arrays to track the character counts of the lowercase alphabet. Compare the matches over the intial strings and iterate over the remainder to see if a permutation is found in the string.
 ✓				Minimum Window Substring								Hard		Use two dictionaries to track the required characters and the window characters. After all required characters have been added to the window, compress it until requirements are no longer met and then continue to expand.
-✗				Sliding Window Maximum									Hard
+✓				Sliding Window Maximum									Hard		Use a monotonic queue that only grows in decresing order. Pop elements from the left of the queue if they are smaller than the current element. The left-most element should always be the largest. Pop from the head when shifting.
 
 
 
@@ -41,7 +41,7 @@ Status			Problem													Difficulty	Notes
 ✓				Generate Parentheses									Medium		Use the number of open parenthesis to determine how many closed ones are needed for a valid set. Use backtracking to generate the sets with the number of remaining closed parenthesis as the base case.
 ✓				Daily Temperatures										Medium		Use a monotonic stack to store indices in the array as you iterate through the input. If you encounter a temperature hotter than what's on the top of the stack, iterate through the stack and update the output.
 ✓				Car Fleet												Medium		Imagine the points in 2D space. Sort the input by position and use speed as a slope to calculate a finish time. As new finish times are calculated, detect fleets, amd reset the current time if a a longer finish time is detected.
-✗				Largest Rectangle in Histogram							Hard
+✓				Largest Rectangle in Histogram							Hard		Use a tuple stack to accumulate input in increasing order. When an element is decreasing, pop larger elements from the stack and assess their size relative to the current index. Check the stack after scanning the input.
 
 
 
@@ -53,7 +53,7 @@ Status			Problem													Difficulty	Notes
 ✓				Search Rotated Sorted Array								Medium		Split the rotated input with binary search and set up conditions to isolate the needed subarray where the target could potentially be using a pivot. These conditionals should catch rotations based on comparisons to the pivot.
 ✓				Find Minimum in Rotated Sorted Array					Medium		A rotation can be isolated as the point where consecutive elements are decreasing. The left pointer should be less than the right pointer at the start of the search if there is no rotation, allowing us to short-circuit.
 ✓				Time Based Key-Value Store								Medium		Use a dictionary to map keys to tuple lists that hold timestamps and values. Retrieve these by searching through the values using binary search. Pay close attention to the edge cases and ranges between timestamps.
-✗				Find Median of Two Sorted Arrays						Hard
+✓				Find Median of Two Sorted Arrays						Hard		Focus a binary search on the smallest input array. Calculate a partition size for the data and use binary search to determine how much of the partition the binary search takes up. Once a partition is verified, return the median.
 
 
 
@@ -68,8 +68,8 @@ Status			Problem													Difficulty	Notes
 ✓				Linked List Cycle										Easy		Use the value range as an offset to edit the input list and detect if an element has been seen before.
 ✓				Find the Duplicate Number								Medium		Use the constraints to form a graph. Use Floyd's to find the intersection point in the cycle. Reset the slow pointer to the start of the graph and move it until the two pointers intersect again to find the begining of the cycle.
 ✓				LRU Cache												Medium		Use a bounded doubly linked list to manage the cache. Use a pointer map to track elements. Remove and re-insert elements on gets to the right-most position and remove the left-most element when the map is at capacity.
-✗				Merge K Sorted Lists									Hard
-✗				Reverse Nodes in K-Group								Hard
+✓				Merge K Sorted Lists									Hard		Use a minHeap that holds list heads and uses their min value as keys. This limits the time complexity of the heap to just nlogk. Unwind the heap to create the new list.
+✓				Reverse Nodes in K-Group								Hard		We need to have a pointer that connects groups to one another. We need to define the start of the next group as the boundary of our reversal. Point the previous group pointer right before the new group.
 
 
 
@@ -88,8 +88,8 @@ Status			Problem													Difficulty	Notes
 ✓				Validate Binary Search Tree								Medium		We can perform an inorder traversal that checks that each element is larger than the previous. An iterative approach uses two while loops and a stack to reach the left-most child of a subtree. Check for right children.
 ✓				Kth Smallest Element in a BST							Medium		Use an inorder traversal and decrement from k until it reaches 0. Once it is at zero, return the node value at that point in the traversal, since an inorder mapping of BST values produces an ordering of least-to-greatest.
 ✓				Construct Tree from Preorder and Inorder Traversal		Medium		Use the inorder array to recursively bound tree construction calls via indices. Use the fact that the first element of the preorder traversal produces the root and subsequent entries make up more subtrees.
-✗				Binary Tree Max Path Sum								Hard
-✗				Serialize and Deserialize Binary Tree					Hard
+✓				Binary Tree Max Path Sum								Hard		Use backtracking to propogate path sums upward. Abandon a sum if it is negative with zero. Return the max of either the left or right side. Update the maximum when left and right paths summed with the current node are greater.
+✓				Serialize and Deserialize Binary Tree					Hard		Use a delimiter for each node value. Have a dedicated character for nulls. Use a queue for an iterative approach to serialization. We can desarialize in the same way, just designate the root and begin exhausting the queue.
 
 
 
@@ -198,7 +198,7 @@ Status			Problem													Difficulty	Notes
 ✓				Hand of Straights										Medium		You can use a hash map and a min heap to sort the input and validate sequences. Ensure that the input can be split into the desired groups and the use the consecutive sequencing to consume the map and the heap.
 ✓				Merge Triplets to Form Target Triplet					Medium		Check each triplet entry and assess whether they any entry exceeds our target bounds. If the triplet passes this check, see if any of the entries match any of our targets.
 ✓				Partition Labels										Medium		Use a dictionary to track the number of character instances. Then use a hash set to track the unique characters in the current window. Reset the window when all unique characters are zero and add the length to the result.
-✗				Valid Parenthesis String								Medium
+✓				Valid Parenthesis String								Medium		Use two pointers to track the minimum and maximum number of open parenthesis possible in a string. If the max pointer goes negative, return false. Reset the minimum if it goes negative. Return true if the minimum is zero.
 
 
 
@@ -209,7 +209,7 @@ Status			Problem													Difficulty	Notes
 ✓				Non-Overlapping Intervals								Medium		Sort the input array and consolidate the sorted intervals. Increment a counter whenever two overlapping intervals are merged.
 ✓				Meeting Rooms											Easy		Sort the input array with a custom comparer that sorts by the start time of each interval array. After the input is sorted, loop through and and ensure that the previous interval does not interfere with the current one.
 ✓				Meeting Rooms II										Medium		Sort the input array by start time and use a minheap to track which meetings will end the fastest using the end time as the key. Dequeue from the heap when an interval starts after the heap's soonest end time. Return the size.
-✗				Minimum Interval to Include Each Query					Hard
+✓				Minimum Interval to Include Each Query					Hard		Use a heap to sort the queries. Sort the intervals by start time. Enqueue the intervals starting before or at the query into a heap using the range and end time. Pop from the heap until an intervals fitting the query are found.
 
 
 
@@ -221,8 +221,8 @@ Status			Problem													Difficulty	Notes
 ✓				Happy Number											Easy		Decompose the input number into digits for a sum and use that as the next number in the search for a happy number. A hash set can be used to track seen numbers, or a cycle detecting algorithm involving slow and fast iterators.
 ✓				Plus One												Easy		Traverse the list right-to-left. If a nine is detected, zero out the entry and proceed in the loop, else increment the entry and return. Account for all 9s outside of the loop by allocating a new n+1 array and heading it with 1.
 ✓				Pow(x, n)												Medium		Implement an iterative solution that casts the exponent to a long, accounts for negative exponents, and crafts a for loop that halves the exponent at every iteration and only changes the base of 1 on odd exponents.
-✗				Multiply Strings										Medium
-✗				Detect Squares											Medium
+✓				Multiply Strings										Medium		Reverse the input numbers and create a product array of size equal to the sum of the input lengths. Parse digits from least-to-most significant, applying carries as you go along. Reverse the result and remove leading zeroes.
+✓				Detect Squares											Medium		Iterate through the collected points and see if any unique points on the diagonal exist using the absolute difference between points. Store instance counts to calculate the number of different square possible.
 
 
 
@@ -234,4 +234,4 @@ Status			Problem													Difficulty	Notes
 ✓				Reverse Bits											Easy		Use the bitwise AND operator and bit shifting to reverse the bits. Shift 16 bits in opposite directions, then use hexadecimal to switch places in 8, 4, 2, and 1 bit increments.
 ✓				Missing Number											Easy		Initialize a bitmask to the length of the input array and use the formatted array input and indices over that input to isolate our target number.
 ✓				Sum of Two Integers										Medium		We need to use bitwise operations in a loop. We need to identify a carryover variable to form a loop around. We store a temporary carryover value by doing a logical and and a bit shift, XOR a and b and assign b the carryover.
-✗				Reverse Integer											Medium			
+✓				Reverse Integer											Medium		Use the pop method and check for boundary conditions. A number is not possible if the next pop would push it over the max or min integers factored by 10. Check for those values and if they are equal, check the pop value itself.
