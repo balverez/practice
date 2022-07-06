@@ -97,7 +97,7 @@ Tries
 Status			Problem													Difficulty	Notes
 ✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a subclass that returns a TrieNode for custom evaluation.
 ✓				Design Add and Search Word Data Structure				Medium		Implement the search method with a helper that can be passed a trie node. This allows wildcard characters to execute searches for substrings with child nodes for every key at the current node.
-✗				Word Search II											Hard
+✓				Word Search II											Hard		Use a backtrackding DFS with a trie to search the grid. Prune trie leaves as words are found. Modify the trie node to hold the string instead of a boolean and pass trie nodes into the DFS for efficiency.
 
 
 
@@ -109,7 +109,7 @@ Status			Problem													Difficulty	Notes
 ✓				Kth Largest Element in an Array							Medium		Use a priority queue to collect the array elements. Ensue that it remains at size k so that the kth largest element can be retrieved in constant time.
 ✓				Task Scheduler											Medium		Use a max heap to track the largest tasks and a queue to track processes on cooldown with a tuple holding the id and the cooldown time. Evaluate the cooldown queue at every iteration and admit tasks into the heap when ready.
 ✓				Design Twitter											Medium		Use dictionaries to map users to tweets and followers to followees. To retrieve a news feed, use a minheap to store and sort the most recent tweets. Return the contents of the heap in reverse order.
-✗				Find Median from Data Stream							Hard
+✓				Find Median from Data Stream							Hard		Use two heaps to maintain equal left and right partitions of the data. Assess whether the heaps need to swap elements or if excess elements need to be moved to the right partition. Retrieving the median should be constant.
 
 
 
@@ -123,7 +123,7 @@ Status			Problem													Difficulty	Notes
 ✓				Word Search												Medium		Use backtracking to execute a search when a trigger is encountered on the grid. Mark the visited cell and expand a BFS to search for the next character in the key. Track the key index and prevent exceeding the boundaries.
 ✓				Palindrome Partitioning									Medium		Use backtracking with a cache to build out partitions. Only backtrack with viable palindromes and use a sublist to push and pop from. Each candidate at every iteration should start empty.
 ✓				Letter Combinations of a Phone Number					Medium		Create a static mapping of digit charaters to letters. Use backtracking to iterate on each possible letter for every digit in the string. Collect these in a list with the digit string length as the base case.
-✗				N-Queens												Hard
+✓				N-Queens												Hard		Use a hash set to store queens on the board. From the top row, insert queens onto the board and proceed to the next row to see if it is viable. Backtrack when an unviable path is found. Use x-y points to find opposing queens.
 
 
 
@@ -151,8 +151,8 @@ Status			Problem													Difficulty
 ✓				Min Cost to Connect all Points							Medium		We can perform Prim's MST on the input. Since vertices map to the input array directly, we can just track visited nodes in a bool array. Calculate the minimum distance for each unvisited vertex in a minheap.
 ✓				Network Delay Time										Medium		Use Dijkstra's algorithm to find the largest shortest path to each of the nodes. When exhausting the minheap, check if the node has been completed and whether it has edges. Check edges to see if their distance can be relaxed.
 ✓				Swim in Rising Water									Hard		Imagine the grid as a graph, whose edges are adjacent cells and edge weights are cell values. We can use Dijkstra on this graph given the value constraints. Track the largest edge weight for return.
-✗				Alien Dictionary										Hard
-✗				Cheapest Flights Within K Stops							Medium
+✓				Alien Dictionary										Hard		Map out the logic of the lexicographically sorted input. Use it to create relations between characters at the first instance of different characters between two strings. Use a topological sort and reverse it for the output. 
+✓				Cheapest Flights Within K Stops							Medium		Set up Dijkstra's algorithm with both distances and number of stops. Explore the graph and relax destinations as you go along. Do not track completed cities as the number of stops also plays a factor in determining the output.
 
 
 
@@ -184,8 +184,8 @@ Status			Problem													Difficulty	Notes
 ✓				Longest Increasing Path in a Matrix						Hard		Using a DFS, we can iterate through entries in the matrix and cache results as entries are explored. Unexplored entries can then use these cached results to efficiently calculate the extent of their reach.
 ✓				Distinct Subsequences									Hard		Use the empty string as a base case. Retrieve the result of s-1, t for s, t. As matching characters are found, use the result of the previous subproblem to complement the current subproblem's result. 
 ✓				Edit Distance											Hard		Use the empty string as a base case to build intuition. The number of edits to change a string to the empty string is equal to the length of the string. Model the three edits on the grid, and take the minimum when chars match. 
-✗				Burst Balloons											Hard
-✗				Regular Expression Matching								Hard
+✓				Burst Balloons											Hard		Model a recursion tree around the boundaries of the problem. Split the array into halves and perform DFS on each to ascertain the potential result. Capture the possible maximum. Use a cache to store subproblem results.
+✓				Regular Expression Matching								Hard		Define the rules of the regular expression characters. Use them to model a recursion tree using DFS and a cache. Use the lengths of the input as base cases and only progress pointers on mathches.
 
 
 

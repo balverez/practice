@@ -6,44 +6,37 @@
         //O(v + e) space
         public int[] FindOrder(int numCourses, int[][] prerequisites)
         {
-            Dictionary<int, Vertex> vertices = new();
+            Dictionary<int, List<int>> adjList = new();
             for (int i = 0; i < numCourses; i++)
             {
-                vertices[i] = new(i);
+                adjList[i] = new();
             }
 
-            foreach (int[] prerequisite in prerequisites)
-                vertices[prerequisite[0]].Requirements.Add(vertices[prerequisite[1]]);
+            foreach (int[] prereq in prerequisites)
+                adjList[prereq[0]].Add(prereq[1]);
 
-            List<Vertex> topologicalSorting = new();
-            int time = 0;
+            Dictionary<int, bool> visited = new();
+            List<int> topSort = new();
             for (int i = 0; i < numCourses; i++)
-            {
-                Vertex u = vertices[i];
-                if (u.State == Vertex.Color.WHITE)
-                    Dfs(topologicalSorting, u, ref time);
-            }
-
-            for (int i = 0; i < numCourses; i++)
-                if (vertices[i].State == Vertex.Color.GRAY)
+                if (!Dfs(topSort, adjList, visited, i))
                     return Array.Empty<int>();
 
-            return topologicalSorting.Select(vertex => vertex.Key).ToArray();
+            return topSort.ToArray();
         }
 
-        private void Dfs(List<Vertex> topologicalSorting, Vertex u, ref int time)
+        private bool Dfs(List<int> topSort, Dictionary<int, List<int>> adjList, Dictionary<int, bool> visited, int node)
         {
-            u.State = Vertex.Color.GRAY;
-            foreach (Vertex v in u.Requirements)
-            {
-                if (v.State == Vertex.Color.WHITE)
-                    Dfs(topologicalSorting, v, ref time);
-                if (v.State == Vertex.Color.GRAY)
-                    return;
-            }
+            if (visited.ContainsKey(node))
+                return visited[node];
 
-            u.State = Vertex.Color.BLACK;
-            topologicalSorting.Add(u);
+            visited[node] = false;
+            foreach (int neighbor in adjList[node])
+                if (!Dfs(topSort, adjList, visited, neighbor))
+                    return false;
+
+            visited[node] = true;
+            topSort.Add(node);
+            return true;
         }
     }
 }
