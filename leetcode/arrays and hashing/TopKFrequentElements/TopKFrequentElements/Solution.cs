@@ -6,30 +6,34 @@
         //O(n) space
         public int[] TopKFrequent(int[] nums, int k)
         {
-            Dictionary<int, int> instances = new();
+            Dictionary<int, int> map = new();
             foreach (int i in nums)
-                instances[i] = instances.GetValueOrDefault(i, 0) + 1;
+                map[i] = map.GetValueOrDefault(i, 0) + 1;
 
             List<int>[] buckets = new List<int>[nums.Length + 1];
-
-            foreach (int key in instances.Keys)
+            foreach (int key in map.Keys)
             {
-                if (buckets[instances[key]] == null)
-                    buckets[instances[key]] = new();
+                int bucket = map[key];
+                if (buckets[bucket] == null)
+                    buckets[bucket] = new();
 
-                buckets[instances[key]].Add(key);
+                buckets[bucket].Add(key);
             }
 
             List<int> result = new();
             for (int i = buckets.Length - 1; i >= 0; i--)
+            {
                 if (buckets[i] != null)
-                    foreach (int element in buckets[i])
+                {
+                    foreach (int key in buckets[i])
                     {
-                        result.Add(element);
+                        result.Add(key);
 
                         if (result.Count == k)
                             return result.ToArray();
                     }
+                }
+            }
 
             return Array.Empty<int>();
         }

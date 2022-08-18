@@ -24,10 +24,8 @@
             for (int j = i; j < candidates.Length; j++)
             {
                 current.Add(candidates[j]);
-                currentSum += candidates[j];
-                Dfs(result, candidates, current, currentSum, j, target);
+                Dfs(result, candidates, current, currentSum + candidates[j], j, target);
                 current.RemoveAt(current.Count - 1);
-                currentSum -= candidates[j];
             }
         }
     }

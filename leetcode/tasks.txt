@@ -17,7 +17,7 @@ Status			Problem													Difficulty	Notes
 ✓				Valid Palindrome										Easy		Set up left and right pointers, ensuring that left is always to the left of the right pointer. Evelauate each character in the string from both directions, ensuring that each character is alphanumeric and that they are the same.
 ✓				Two Sum II												Medium		Iterate through the input with left and right pointers, incrementing the left or decrementing the right depending on the difference between the elements and the target.
 ✓				3Sum													Medium		Set up a helper method that will calculate Two Sum for target 0. Iterate through the input and execute two sum at elements <= 0. After finding a triplet, increment the left pointer until it reaches a new element to avoid dups.
-✓				Container with Most Water								Medium		Use two pointers to create the largest container and compress the container by shifting the smallest of the the two heights. at each iteration until the pointers are in the same array element.
+✓				Container with Most Water								Medium		Use two pointers to create the largest container and compress the container by shifting the smallest of the the two heights at each iteration until the pointers are in the same array element.
 ✓				Trapping Rain Water										Hard		Use two pointers to set up boundaries. Accumulate rain if pointer heights are lower than the established boundaries. Only update the boundaries when both pointers are greater than the current maximum. Move the shortest pointer.
 
 
@@ -97,7 +97,7 @@ Tries
 Status			Problem													Difficulty	Notes
 ✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a subclass that returns a TrieNode for custom evaluation.
 ✓				Design Add and Search Word Data Structure				Medium		Implement the search method with a helper that can be passed a trie node. This allows wildcard characters to execute searches for substrings with child nodes for every key at the current node.
-✓				Word Search II											Hard		Use a backtrackding DFS with a trie to search the grid. Prune trie leaves as words are found. Modify the trie node to hold the string instead of a boolean and pass trie nodes into the DFS for efficiency.
+✓				Word Search II											Hard		Use a backtracking DFS with a trie to search the grid. Prune trie leaves as words are found. Modify the trie node to hold the string instead of a boolean and pass trie nodes into the DFS for efficiency.
 
 
 

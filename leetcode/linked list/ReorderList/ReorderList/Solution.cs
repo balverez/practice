@@ -49,26 +49,15 @@
         //O(1) space
         private void MergeTwoLists(ListNode? head, ListNode? reversedHalf)
         {
-            ListNode sentinel = new(int.MinValue);
-            ListNode iterator = sentinel;
-
-            bool headFlag = true;
-            while (head != null && reversedHalf != null)
+            ListNode? iterator = head;
+            while (reversedHalf.next != null)
             {
-                if (headFlag)
-                {
-                    iterator.next = head;
-                    head = head.next;
-                    headFlag = false;
-                }
-                else
-                {
-                    iterator.next = reversedHalf;
-                    reversedHalf = reversedHalf.next;
-                    headFlag = true;
-                }
-
-                iterator = iterator.next;
+                ListNode? temp = iterator.next;
+                iterator.next = reversedHalf;
+                iterator = temp;
+                temp = reversedHalf.next;
+                reversedHalf.next = iterator;
+                reversedHalf = temp;
             }
         }
     }

@@ -2,6 +2,8 @@
 {
     public class Solution
     {
+        //O(2^n) time
+        //O(2^n) space
         public IList<string> GenerateParenthesis(int n)
         {
             Stack<char> stack = new();

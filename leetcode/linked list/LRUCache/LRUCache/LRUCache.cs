@@ -5,7 +5,7 @@
     {
         public int Capacity { get; set; }
         public Dictionary<int, Node> Cache { get; set; } = new();
-        public Node Left { get; set; } = new(int.MinValue, int.MaxValue);
+        public Node Left { get; set; } = new(int.MinValue, int.MinValue);
         public Node Right { get; set; } = new(int.MaxValue, int.MaxValue);
 
         public LRUCache(int capacity)

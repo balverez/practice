@@ -9,20 +9,19 @@
             int m = matrix.Length;
             int n = matrix[0].Length;
             int left = 0;
-            int right = m * n - 1;
-
+            int right = (m * n) - 1;
             while (left <= right)
             {
-                int pivot = (left + right) / 2;
-                int pivotElement = matrix[pivot / n][pivot % n];
-                
-                if (pivotElement == target)
+                int p = (left + right) >> 1;
+                int element = matrix[p / n][p % n];
+
+                if (element == target)
                     return true;
 
-                if (pivotElement < target)
-                    left = pivot + 1;
+                if (target < element)
+                    right = p - 1;
                 else
-                    right = pivot - 1;
+                    left = p + 1;
             }
 
             return false;
