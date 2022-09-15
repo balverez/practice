@@ -9,32 +9,45 @@ abstract class Fighter {
 }
 
 class Warrior extends Fighter {
+    private final int CRITICAL_DAMAGE = 10;
+    private final int BASE_DAMAGE = 6;
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Please implement the toString() method with the required text");
+        return String.format("Fighter is a %s", getClass().getName());
     }
 
     @Override
+    boolean isVulnerable() { return false; }
+
+    @Override
     int damagePoints(Fighter wizard) {
-        throw new UnsupportedOperationException("Please implement Warrior.damagePoints() method");
+        return wizard.isVulnerable() ? CRITICAL_DAMAGE : BASE_DAMAGE;
     }
 }
 
 class Wizard extends Fighter {
+    private final int CRITICAL_DAMAGE = 12;
+    private final int BASE_DAMAGE = 3;
+    private boolean spellPrepared = false;
+
+    @Override
+    public String toString() {
+        return String.format("Fighter is a %s", getClass().getName());
+    }
 
     @Override
     boolean isVulnerable() {
-        throw new UnsupportedOperationException("Please implement Wizard.isVulnerable() method");
+        return !spellPrepared;
     }
 
     @Override
     int damagePoints(Fighter warrior) {
-        throw new UnsupportedOperationException("Please implement Wizard.damagePoints() method");
+        return spellPrepared ? CRITICAL_DAMAGE : BASE_DAMAGE;
     }
 
     void prepareSpell() {
-        throw new UnsupportedOperationException("Please implement Wizard.prepareSpell() method");
+        spellPrepared = true;
     }
 
 }
