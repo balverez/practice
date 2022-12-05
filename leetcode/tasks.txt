@@ -95,7 +95,7 @@ Status			Problem													Difficulty	Notes
 
 Tries
 Status			Problem													Difficulty	Notes
-✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a subclass that returns a TrieNode for custom evaluation.
+✓				Implement Trie											Medium		Use a Dictionary to map characters to TrieNodes in the TrieNode class. Search and StartsWith can share a helper method that returns a TrieNode for custom evaluation.
 ✓				Design Add and Search Word Data Structure				Medium		Implement the search method with a helper that can be passed a trie node. This allows wildcard characters to execute searches for substrings with child nodes for every key at the current node.
 ✓				Word Search II											Hard		Use a backtracking DFS with a trie to search the grid. Prune trie leaves as words are found. Modify the trie node to hold the string instead of a boolean and pass trie nodes into the DFS for efficiency.
 
@@ -167,7 +167,7 @@ Status			Problem													Difficulty	Notes
 ✓				Decode Ways												Medium		Starting from i = 1, check if the char can create a valid one-digit number. If so, track the number of ways one step back with the current pointer. Add the ways from two steps back if it can create a two-digit number.
 ✓				Coin Change												Medium		Build out a memo table in a bottom-up manner from 1 to the target amount. Only use coins less than or equal to the iteration, starting from 1. If the amount in the memo table is still default, than the target can't be achieved.
 ✓				Maximum Product Subarray								Medium		Track both current minimums and maximums while iterating through the input to handle negatives and positives. Check if either should be reset at every iteration and assess whether it will grow or decrease past either tracker.
-✓				Word Break												Medium		Use a memo to track where valid substrings are detected. Use the empty string as the base case and add to the memo if the first index of a substring is already marked as valid. A valid string would be marked on the last element.
+✓				Word Break												Medium		Use a memo to track where valid substrings are detected. Use the empty string as the base case and add to the memo if the 1st index of a substring is already marked as valid. A valid string would be marked on the last element.
 ✓				Longest Increasing Subsequence							Medium		Use a sorted list to track the increasing subsequence. Only add to it if an element is greater than the last item on the list. If an element is equal or smaller, look for the index to replace in the list using binary search.
 ✓				Partition Equal Subset Sum								Medium		Model a DFS with a memo. Calculate the total sum over the array and halve it for the target base case of the DFS. Use a memo to cache results from the recursion tree.
 
@@ -219,7 +219,7 @@ Status			Problem													Difficulty	Notes
 ✓				Spiral Matrix											Medium		A method of controlling the direction of the iterations and defining the boundaries of the matrix in our search is key.
 ✓				Set Matrix Zeroes										Medium		Use a flag system to mark columns and rows for zeroing out. Check for zeros in the flag row and column first to see if they will need to be handled at the end. Iterate through the rest of the sub-matrix and set flags as needed.
 ✓				Happy Number											Easy		Decompose the input number into digits for a sum and use that as the next number in the search for a happy number. A hash set can be used to track seen numbers, or a cycle detecting algorithm involving slow and fast iterators.
-✓				Plus One												Easy		Traverse the list right-to-left. If a nine is detected, zero out the entry and proceed in the loop, else increment the entry and return. Account for all 9s outside of the loop by allocating a new n+1 array and heading it with 1.
+✓				Plus One												Easy		Traverse the list right-to-left. If a 9 is detected, zero out the entry and proceed in the loop, else increment the entry and return. Account for all 9s outside of the loop by allocating a new n+1 array and heading it with 1.
 ✓				Pow(x, n)												Medium		Implement an iterative solution that casts the exponent to a long, accounts for negative exponents, and crafts a for loop that halves the exponent at every iteration and only changes the base of 1 on odd exponents.
 ✓				Multiply Strings										Medium		Reverse the input numbers and create a product array of size equal to the sum of the input lengths. Parse digits from least-to-most significant, applying carries as you go along. Reverse the result and remove leading zeroes.
 ✓				Detect Squares											Medium		Iterate through the collected points and see if any unique points on the diagonal exist using the absolute difference between points. Store instance counts to calculate the number of different square possible.
