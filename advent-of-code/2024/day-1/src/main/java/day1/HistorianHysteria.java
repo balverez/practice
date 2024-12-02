@@ -5,37 +5,51 @@ import lombok.Getter;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 @Getter
 public class HistorianHysteria {
-    private final List<Integer> list1 = new ArrayList<>();
+    private final List<Integer> leftList = new ArrayList<>();
 
-    private final List<Integer> list2 = new ArrayList<>();
+    private final List<Integer> rightList = new ArrayList<>();
 
     public HistorianHysteria(String inputPath) throws IOException {
         try (Scanner inputScanner = new Scanner(new File(inputPath))) {
             while (inputScanner.hasNextLine()) {
                 if (inputScanner.hasNextInt())
-                    list1.add(inputScanner.nextInt());
+                    leftList.add(inputScanner.nextInt());
 
                 if (inputScanner.hasNextInt())
-                    list2.add(inputScanner.nextInt());
+                    rightList.add(inputScanner.nextInt());
             }
         }
     }
 
-    public int totalDistanceOfTwoLists() {
+    public int totalDistance() {
         int totalDistance = 0;
-        list1.sort(Integer::compareTo);
-        list2.sort(Integer::compareTo);
+        leftList.sort(Integer::compareTo);
+        rightList.sort(Integer::compareTo);
 
-        for (int i = 0; i < list1.size() && i < list2.size(); i++) {
-            totalDistance += Math.abs(list1.get(i) - list2.get(i));
+        for (int i = 0; i < leftList.size() && i < rightList.size(); i++) {
+            totalDistance += Math.abs(leftList.get(i) - rightList.get(i));
         }
 
         return totalDistance;
+    }
+
+    public int similarityScore() {
+        int similarityScore = 0;
+        Map<Integer, Integer> digitInstanceMap = new HashMap<>();
+        rightList.forEach(
+                x -> digitInstanceMap.put(x, digitInstanceMap.getOrDefault(x, 0) + 1));
+
+        for (int number : leftList) {
+            similarityScore += number * digitInstanceMap.getOrDefault(number, 0);
+        }
+
+        return similarityScore;
     }
 }
