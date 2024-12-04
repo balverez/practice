@@ -7,8 +7,8 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class HistorianHysteriaTest {
-    private static final String INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-2\\src\\main\\resources\\input";
-    private static final String TEST_INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-2\\src\\main\\resources\\test-input";
+    private static final String INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-1\\src\\main\\resources\\input";
+    private static final String TEST_INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-1\\src\\main\\resources\\test-input";
     private static final int TEST_INPUT_TOTAL_DISTANCE = 11;
     private static final int TEST_INPUT_SIMILARITY_SCORE = 31;
     private static final int INPUT_TOTAL_DISTANCE = 1590491;
