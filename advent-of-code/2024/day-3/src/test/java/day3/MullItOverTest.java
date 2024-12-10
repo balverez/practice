@@ -14,6 +14,7 @@ class MullItOverTest {
     public static String INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-3\\src\\main\\resources\\input";
     public static int INPUT_RESULT = 188741603;
     public static int INPUT_RESULT_WITH_CONDITIONALS = 67269798;
+    public static String TRENTS_INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-3\\src\\main\\resources\\trents-shitty-input";
 
     @Test
     void mullWithExampleInput() throws IOException {
@@ -39,6 +40,13 @@ class MullItOverTest {
     @Test
     void mullWithConditionalsWithInput() throws IOException {
         MullItOver mullItOver = new MullItOver(INPUT_PATH);
+
+        assertEquals(INPUT_RESULT_WITH_CONDITIONALS, mullItOver.mullWithConditionals());
+    }
+
+    @Test
+    void mullWithConditionalsWithTrentsInput() throws IOException {
+        MullItOver mullItOver = new MullItOver(TRENTS_INPUT_PATH);
 
         assertEquals(INPUT_RESULT_WITH_CONDITIONALS, mullItOver.mullWithConditionals());
     }

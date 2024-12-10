@@ -45,7 +45,7 @@ public class CeresSearch {
             for (int j = 0; j < columnCount; j++) {
                 if (matrix[i][j] == SEARCH_WORD_ARRAY[0]) {
                     for (int k = 0; k < ROW_NAV_ARRAY.length; k++) {
-                        instanceCount += evaluatePath(1, i, j, ROW_NAV_ARRAY[k], COLUMN_NAV_ARRAY[k]);
+                        instanceCount += evaluatePath(1, i, j, k);
                     }
                 }
             }
@@ -70,9 +70,9 @@ public class CeresSearch {
         return instanceCount;
     }
 
-    private int evaluatePath(int searchPointer, int pastRow, int pastColumn, int rowDir, int columnDir) {
-        int i = pastRow + rowDir;
-        int j = pastColumn + columnDir;
+    private int evaluatePath(int searchPointer, int pastRow, int pastColumn, int nav) {
+        int i = pastRow + ROW_NAV_ARRAY[nav];
+        int j = pastColumn + COLUMN_NAV_ARRAY[nav];
         if (i < rowCount
                 && i > -1
                 && j < columnCount
@@ -84,7 +84,7 @@ public class CeresSearch {
                 return 1;
             }
 
-            return evaluatePath(++searchPointer, i, j, rowDir, columnDir);
+            return evaluatePath(++searchPointer, i, j, nav);
         }
 
         return 0;
