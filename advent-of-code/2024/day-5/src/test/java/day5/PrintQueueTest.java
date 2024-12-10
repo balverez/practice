@@ -7,8 +7,8 @@ import java.io.FileNotFoundException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrintQueueTest {
-    private static final String EXAMPLE_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-5\\src\\main\\resources\\example";
-    private static final String INPUT_PATH = "C:\\Users\\brian\\IdeaProjects\\practice\\advent-of-code\\2024\\day-5\\src\\main\\resources\\input";
+    private static final String EXAMPLE_PATH = "/Users/balverez/Workplace/practice/advent-of-code/2024/day-5/src/main/resources/example";
+    private static final String INPUT_PATH = "/Users/balverez/Workplace/practice/advent-of-code/2024/day-5/src/main/resources/input";
     private static final int EXAMPLE_RESULT = 143;
     private static final int INPUT_RESULT = 5275;
     private static final int INCORRECTLY_ORDERED_EXAMPLE_RESULT = 123;
