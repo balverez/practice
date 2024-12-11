@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class GuardGallivantTest {
     private static final String EXAMPLE_PATH = "/Users/balverez/Workplace/practice/advent-of-code/2024/day-6/src/main/resources/example";
